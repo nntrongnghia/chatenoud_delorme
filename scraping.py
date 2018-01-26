@@ -16,3 +16,4 @@ sect_ul = list(section_html.children)[1]
 
 #section ul [li*35]
 li_list = sect_ul.find_all('li')
+print("hello again")
