@@ -20,25 +20,23 @@ sect_ul = list(section_html.children)[1]
 li_list = sect_ul.find_all('li')
 
 
+
 #=================================================================
 #===================    Partie de Hako ci-dessous      ======================
 #==================================================================
-# 1 : <p class="item_supp" content="Voitures" itemprop="category">
-# 2 : <p class="item_supp" content="Jeux &amp; Jouets" itemprop="category">
-# 3 : <p class="item_supp" content="Bricolage" itemprop="category">
-# 4 : <p class="item_supp" content="Equipement bébé" itemprop="category">
+
+# on va chercher dans le string li_list[X] précisément l'emplacement du nom de la catégorie
+targgetcategorie = re.compile(r'(<p class="item_supp" content=")(.+?)(" itemprop="category">)')
+
+matches =targgetcategorie.finditer(sentence)
 
 
-sentence = r': <p class="item_supp" content="vetement" itemprop="category">'
-targget = re.compile(r'(<p class="item_supp" content=")(\w+)(" itemprop="category">)')
-matches =targget.finditer(sentence)
-
-
-
+#ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
 for match in matches:
-    
     categorie =match.group(2)
-    print ("categorie = " , categorie )
+
+
+
 
 #===================================================================
 #==================     Partie de Tony ci-dessous     ========================
