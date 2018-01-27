@@ -31,6 +31,7 @@ li_list = sect_ul.find_all('li')
 
 # on va chercher dans le string li_list[X] précisément l'emplacement du nom de la catégorie
 targgetcategorie = re.compile(r'(<p class="item_supp" content=")(.+?)(" itemprop="category">)')
+<<<<<<< HEAD
 matches =targgetcategorie.finditer(sentence)
 #ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
 for match in matches:
@@ -46,6 +47,10 @@ targgettitle = re.compile(r'(<span class="lazyload" data-imgalt=")(.+?)(" data-i
 matches =targgettitle.finditer(sentence)
 
 
+=======
+sentence = str(li_list[0])
+matches =targgetcategorie.finditer(sentence)
+>>>>>>> 52d1ca04e8d16673d07508439244b53d9cdfa8b5
 #ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
 for match in matches:
     titre =match.group(2)
