@@ -1,6 +1,6 @@
 # chatenoud_delorme
 
-## TACHES A FAIRE
+## Des taches a faire pour l'instant:
 - Creer des fonctions pour rendre esthetique des informations
 - Remarque: une fonction pour chaque information
     - name
@@ -12,8 +12,3 @@
 
 - Hako: les 3 premieres
 - Tony: les autres
-
-## BIBLIOTHEQUES NECESSSAIRES
-import requests
-from bs4 import BeautifulSoup as soup
-from datetime import datetime
