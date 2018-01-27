@@ -25,7 +25,6 @@ li_list = sect_ul.find_all('li')
 #===================    Partie de Hako ci-dessous      ======================
 #==================================================================
 
-print("hello")
 # on va chercher dans le string li_list[X] précisément l'emplacement du nom de la catégorie
 targgetcategorie = re.compile(r'(<p class="item_supp" content=")(.+?)(" itemprop="category">)')
 
