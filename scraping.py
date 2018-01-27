@@ -19,6 +19,10 @@ sect_ul = list(section_html.children)[1]
 #section ul [li*35]
 li_list = sect_ul.find_all('li')
 
+
+#=================================================================
+#===================    Partie de Hako ci-dessous      ======================
+#==================================================================
 # 1 : <p class="item_supp" content="Voitures" itemprop="category">
 # 2 : <p class="item_supp" content="Jeux &amp; Jouets" itemprop="category">
 # 3 : <p class="item_supp" content="Bricolage" itemprop="category">
@@ -35,15 +39,6 @@ for match in matches:
     
     categorie =match.group(2)
     print ("categorie = " , categorie )
-
-#=================================================================
-#===================    Partie de Hako ci-dessous      ======================
-#==================================================================
-
-
-
-
-
 
 #===================================================================
 #==================     Partie de Tony ci-dessous     ========================
