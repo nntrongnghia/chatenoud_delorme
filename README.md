@@ -17,3 +17,7 @@
 import requests
 from bs4 import BeautifulSoup as soup
 from datetime import datetime
+
+## PROBLEMES
+- Tester la connectioe avant telecharger html
+ 
