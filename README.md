@@ -20,3 +20,4 @@ from datetime import datetime
 
 ## PROBLEMES
 - Tester la connectioe avant telecharger html
+- Il n'y a pas de prix

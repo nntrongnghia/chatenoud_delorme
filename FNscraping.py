@@ -19,13 +19,20 @@ def get_link(li):
     return link
 
 def get_price(li):
-    item_price = li.a.find(class_='item_price').text.split() 
-    price_str = [s for s in item_price if s.isdigit()]
-    price = ''
-    for s in price_str:
-        price += s
-    price = int(price)
-    return price
+    try:
+        item_price = li.a.find(class_='item_price').text.split()
+        item_price = item_price[:3]
+        #tirer le prix dans le list ci-dessus et transformer sous type float
+        price_str = [s for s in item_price if s.isdigit()]
+        price = ''
+        for s in price_str:
+            price += s
+        price = int(price)
+        return price
+    except:
+        
+        return 0
+
 
 def get_date(li):
     date_html = li.a.find_all(class_='item_supp')[-1]
@@ -33,3 +40,12 @@ def get_date(li):
     h = date_html.text.split()[-1]
     dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
     return dt
+
+def get_cat(li):
+    target_categorie = re.compile(r'(<p class="item_supp" content=")(.+?)(" itemprop="category">)')
+    sentence = str(li)
+    matches =target_categorie.finditer(sentence)
+    #ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
+    for match in matches:
+        categorie =match.group(2)
+    return categorie
