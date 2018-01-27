@@ -23,17 +23,35 @@ li_list = sect_ul.find_all('li')
 
 #=================================================================
 #===================    Partie de Hako ci-dessous      ======================
-#==================================================================
+#=================================================================
+
+#-----------------------------------------------------
+#   FONCTION TROUVER CAEGORIE
+
 
 # on va chercher dans le string li_list[X] précisément l'emplacement du nom de la catégorie
 targgetcategorie = re.compile(r'(<p class="item_supp" content=")(.+?)(" itemprop="category">)')
-
 matches =targgetcategorie.finditer(sentence)
+#ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
+for match in matches:
+    categorie =match.group(2)
+
+
+#-----------------------------------------------------
+#   FONCTION TROUVER TITRE
+
+# on va chercher dans le string li_list[X] précisément l'emplacement du nom de la catégorie
+targgettitle = re.compile(r'(<span class="lazyload" data-imgalt=")(.+?)(" data-imgsrc=)')
+
+matches =targgettitle.finditer(sentence)
 
 
 #ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
 for match in matches:
-    categorie =match.group(2)
+    titre =match.group(2)
+    
+
+#<span class="lazyload" data-imgalt="[PRO] Triumph Street Triple 675 R" data-imgsrc="https://img6.leboncoin.fr/ad-thumb/bb941b846aa9a06297559f3d6da85b7ded479898.jpg" style="display:block; width:100%; height:100%;"></span>
 
 
 
