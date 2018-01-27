@@ -20,4 +20,4 @@ from datetime import datetime
 
 ## PROBLEMES
 - Tester la connectioe avant telecharger html
- 
+- espace dans le prix > 1000 euro
