@@ -21,27 +21,25 @@ li_list = sect_ul.find_all('li')
 
 # 1 : <p class="item_supp" content="Voitures" itemprop="category">
 # 2 : <p class="item_supp" content="Jeux &amp; Jouets" itemprop="category">
-# 3 : <p class="item_supp" content="Equipement bébé" itemprop="category">
+# 3 : <p class="item_supp" content="Bricolage" itemprop="category">
 # 4 : <p class="item_supp" content="Equipement bébé" itemprop="category">
 
 
-sentence = r': <p class="item_supp" content="Equipement bébé" itemprop="category">'
-targget = re.compile(r'(<p class="item_supp" content=")(\w+ \s? \w+? )(" itemprop="category")')
+sentence = r': <p class="item_supp" content="vetement" itemprop="category">'
+targget = re.compile(r'(<p class="item_supp" content=")(\w+)(" itemprop="category">)')
 matches =targget.finditer(sentence)
 
 
 
 for match in matches:
     
-    categorie =match.group(1)
+    categorie =match.group(2)
     print ("categorie = " , categorie )
 
 =======
 #=================================================================
 #===================    Partie de Hako ci-dessous      ======================
 #==================================================================
-
-
 
 
 
@@ -91,4 +89,3 @@ dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
 #on va utiliser l'objet datetime.datetime
 #car c'est facile a traiter et trier
 #FIN SAMPLE CODE =================
->>>>>>> 7041bad4e19e6699909a8c78f2d706be447fd2d1
