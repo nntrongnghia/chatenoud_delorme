@@ -68,7 +68,11 @@ lien = sample.a['href']
 #c'est un list y compris le prix (sous type char) et le symbol euro
 item_price = sample.a.find(class_='item_price').text.split() 
 #tirer le prix dans le list ci-dessus et transformer sous type float
-price = [float(s) for s in item_price if s.isdigit()][0]
+price_str = [s for s in item_price if s.isdigit()]
+price = ''
+for s in price_str:
+    price += s
+price = int(price)
 
 #TRAITER LA DATE
 

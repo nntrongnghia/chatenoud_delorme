@@ -20,7 +20,11 @@ def get_link(li):
 
 def get_price(li):
     item_price = li.a.find(class_='item_price').text.split() 
-    price = [float(s) for s in item_price if s.isdigit()][0]
+    price_str = [s for s in item_price if s.isdigit()]
+    price = ''
+    for s in price_str:
+        price += s
+    price = int(price)
     return price
 
 def get_date(li):
