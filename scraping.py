@@ -28,39 +28,58 @@ li_list = sect_ul.find_all('li')
 #-----------------------------------------------------
 #   FONCTION TROUVER CAEGORIE
 
-
+sentence = str(li_list[0])
 # on va chercher dans le string li_list[X] précisément l'emplacement du nom de la catégorie
 targgetcategorie = re.compile(r'(<p class="item_supp" content=")(.+?)(" itemprop="category">)')
-<<<<<<< HEAD
 matches =targgetcategorie.finditer(sentence)
 #ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
 for match in matches:
     categorie =match.group(2)
+    #imprimer la categorie (optionel !!!)
+    print(categorie)
 
 
 #-----------------------------------------------------
 #   FONCTION TROUVER TITRE
 
-# on va chercher dans le string li_list[X] précisément l'emplacement du nom de la catégorie
+
+sentence = str(li_list[15])
+# on va chercher dans le string li_list[X] précisément l'emplacement du titre de l'annonce
 targgettitle = re.compile(r'(<span class="lazyload" data-imgalt=")(.+?)(" data-imgsrc=)')
-
 matches =targgettitle.finditer(sentence)
-
-
-=======
-sentence = str(li_list[0])
-matches =targgetcategorie.finditer(sentence)
->>>>>>> 52d1ca04e8d16673d07508439244b53d9cdfa8b5
-#ici on extrait la catégorie qui sera implémenté dans la variable "categorie"
+#ici on extrait le titre qui sera implémenté dans la variable "titre"
 for match in matches:
     titre =match.group(2)
+    #imprimer le titre (optionel !!!)
+    print(titre)
     
+#-----------------------------------------------------
+#   FONCTION TROUVER VILLE
 
-#<span class="lazyload" data-imgalt="[PRO] Triumph Street Triple 675 R" data-imgsrc="https://img6.leboncoin.fr/ad-thumb/bb941b846aa9a06297559f3d6da85b7ded479898.jpg" style="display:block; width:100%; height:100%;"></span>
+sentence = str(li_list[15])
+# on va chercher dans le string li_list[X] précisément l'emplacement géographique de la ville de l'annonceur
+targgetville = re.compile(r'(<meta content=")(.+?)(.+?)(" itemprop="address"/>)')
+matches =targgetville.finditer(sentence)
+#ici on extrait le nom de la ville du vendeur qui sera implémenté dans la variable "ville"
+for match in matches:
+    ville =match.group(2)
+    #imprimer la ville (optionel !!!)
+    print(ville)
+
+# en dessous , c est en construction mdrr
+                                        <meta content="Arles" itemprop="address"/>
 
 
+                                        Bouches-du-Rhône
+                                        <meta content="Bouches-du-Rhône" itemprop="address"/>
+
+                                        Toulon
+
+                                        <meta content="Toulon" itemprop="address"/>
 
 
+                                        Var
+                                        <meta content="Var" itemprop="address"/>
 
 #===================================================================
 #==================     Partie de Tony ci-dessous     ========================
