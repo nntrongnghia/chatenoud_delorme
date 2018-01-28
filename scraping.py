@@ -55,32 +55,32 @@ for match in matches:
     print(titre)
     
 #-----------------------------------------------------
-#   FONCTION TROUVER VILLE
+#   FONCTION TROUVER LIEU (VILLE ET DEPARTEMENT)
 
-sentence = str(li_list[15])
-# on va chercher dans le string li_list[X] précisément l'emplacement géographique de la ville de l'annonceur
-targgetville = re.compile(r'(<meta content=")(.+?)(.+?)(" itemprop="address"/>)')
+
+
+sentence = str(li_list[31])
+# on va chercher dans le string li_list[X] précisément les coordonéés géographiques de l'annonceur
+
+targgetville = re.compile(r'(<meta content=")(.+)(" itemprop="address")')
 matches =targgetville.finditer(sentence)
-#ici on extrait le nom de la ville du vendeur qui sera implémenté dans la variable "ville"
+#ici on extrait le lieux (ville et departement dans le groupe 2(au millieu))
 for match in matches:
-    ville =match.group(2)
-    #imprimer la ville (optionel !!!)
-    print(ville)
+    #si le lieu a le nom d'un des departements de la region paca , c est un département 
+    lieu =match.group(2)
+    if lieu == 'Alpes-Maritimes':
+        #on l'implémentera donc dans la variable "departement"
+        departement = lieu
+    # sinon , c est le nom d'une ville !!!    
+    else:
+        #on l'implémentera alors dans la variable "ville"
+        ville = lieu  
+    #imprimer la ville (sous la variable ville) et le departement (dans departement) (optionel !!!)  
+    print("ville = ", ville)
+    print("departement = ", departement)
 
-# en dessous , c est en construction mdrr
-                                        <meta content="Arles" itemprop="address"/>
+    
 
-
-                                        Bouches-du-Rhône
-                                        <meta content="Bouches-du-Rhône" itemprop="address"/>
-
-                                        Toulon
-
-                                        <meta content="Toulon" itemprop="address"/>
-
-
-                                        Var
-                                        <meta content="Var" itemprop="address"/>
 
 #===================================================================
 #==================     Partie de Tony ci-dessous     ========================
