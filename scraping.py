@@ -57,29 +57,18 @@ for match in matches:
 #-----------------------------------------------------
 #   FONCTION TROUVER LIEU (VILLE ET DEPARTEMENT)
 
+#<meta content="La Seyne-sur-Mer" itemprop="address">
 
+sentence = str(li_list[4])
 
-sentence = str(li_list[0])
-# on va chercher dans le string li_list[X] précisément les coordonéés géographiques de l'annonceur
-
-targgetville = re.compile(r'(<meta content=")(.+)(" itemprop="address")')
-matches =targgetville.finditer(sentence)
-#ici on extrait le lieux (ville et departement dans le groupe 2(au millieu))
+targgetville = re.compile(r'<meta content="(.+)" itemprop="address"')
+matches =targgetville.findall(sentence)
+paca = ['Alpes-Maritimes','Var','Hautes-Alpes','Alpes-de-Haute-Provence','Vaucluse','Bouches-du-Rhône']
 for match in matches:
-    #si le lieu a le nom d'un des departements de la region paca , c est un département 
-    lieu =match.group(2)
-    if lieu == 'Alpes-Maritimes':
-        #on l'implémentera donc dans la variable "departement"
-        departement = lieu
-    # sinon , c est le nom d'une ville !!!    
+    if match in  paca:
+        departement=match  
     else:
-        #on l'implémentera alors dans la variable "ville"
-        ville = lieu  
-    #imprimer la ville (sous la variable ville) et le departement (dans departement) (optionel !!!)  
-    print("ville = ", ville)
-    print("departement = ", departement)
-
-    
+        ville = match 
 
 
 #===================================================================
@@ -117,6 +106,7 @@ try:
     price = ''
     for s in price_str:
         price += s
+    # le prix passe d'une chaine de caractere a une valeur numérique(moin lourde)
     price = int(price)
 except:
     #OBTENIR LA DESCRIPTION
