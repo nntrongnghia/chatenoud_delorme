@@ -44,7 +44,7 @@ for match in matches:
 #   FONCTION TROUVER TITRE
 
 
-sentence = str(li_list[15])
+sentence = str(li_list[0])
 # on va chercher dans le string li_list[X] précisément l'emplacement du titre de l'annonce
 targgettitle = re.compile(r'(<span class="lazyload" data-imgalt=")(.+?)(" data-imgsrc=)')
 matches =targgettitle.finditer(sentence)
@@ -59,7 +59,7 @@ for match in matches:
 
 
 
-sentence = str(li_list[31])
+sentence = str(li_list[0])
 # on va chercher dans le string li_list[X] précisément les coordonéés géographiques de l'annonceur
 
 targgetville = re.compile(r'(<meta content=")(.+)(" itemprop="address")')
