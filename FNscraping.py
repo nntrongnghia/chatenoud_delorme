@@ -43,6 +43,7 @@ def get_price(li):
         return price
 
 
+
 def get_date(li):
     date_html = li.a.find_all(class_='item_supp')[-1]
     d = date_html['content']
@@ -80,3 +81,23 @@ def get_title(li):
 
 def get_id(li):
     return li.find(class_='saveAd')['data-savead-id']
+
+def get_department(li):
+    sentence = str(li)
+    targgetville = re.compile(r'<meta content="(.+)" itemprop="address"')
+    matches =targgetville.findall(sentence)
+    paca = ['Alpes-Maritimes','Var','Hautes-Alpes','Alpes-de-Haute-Provence','Vaucluse','Bouches-du-Rhône']
+    for match in matches:
+        if match in paca:
+            departement=match  
+    return departement
+
+def get_city(li):
+    sentence = str(li)
+    targgetville = re.compile(r'<meta content="(.+)" itemprop="address"')
+    matches =targgetville.findall(sentence)
+    paca = ['Alpes-Maritimes','Var','Hautes-Alpes','Alpes-de-Haute-Provence','Vaucluse','Bouches-du-Rhône']
+    for match in matches:
+        if match not in paca:
+            ville=match  
+    return ville

@@ -9,9 +9,15 @@
     - prix
     - date (necessiter d'une fonction pour traiter la date actuelle)
     - lien de l'annonce
+==================================================================
+- lister des categories que l'on veut - Hako
+- modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony mais apres Hako
+- grouper des departements en categories en fonction de la distance
+    - scrap des noms de villes - Hako
+    - scrap des coordonnees - Tony
+- achitecture du programme principal - ensemble
+- stocker des donnees - Tony
 
-- Hako: les 3 premieres
-- Tony: les autres
 
 ## BIBLIOTHEQUES NECESSSAIRES
 import requests
@@ -19,10 +25,7 @@ from bs4 import BeautifulSoup as soup
 from datetime import datetime
 
 ## PROBLEMES
-- Tester la connectioe avant telecharger html
-- Il n'y a pas de prix
-        (
-            -chercher le prix dans la déscription
-            -si le prix n'est pas dans détécté dans la description -->0 euros
-            -si il ya plusieurs prix , --> 0 euros
-        )
+- Tester la connection avant telecharger html
+- get_price takes much time
+- get_date with urgent annonce
+- get_price et get_desc - pour ne pas charger le html de l'annonce 2 fois.
