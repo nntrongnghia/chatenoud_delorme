@@ -73,9 +73,4 @@ def get_desc(li):
         return 'Nouvelle type de page sur leboncoin'
 
 def get_title(li):
-    sentence = str(li)
-    targgettitle = re.compile(r'(<span class="lazyload" data-imgalt=")(.+?)(" data-imgsrc=)')
-    matches =targgettitle.finditer(sentence)
-    for match in matches:
-        title = match.group(2)
-    return title
+    return li.a['title']
