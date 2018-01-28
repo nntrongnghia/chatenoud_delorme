@@ -30,13 +30,16 @@ def get_price(li):
         price = int(price)
         return price
     except:
-        get_desc(li)
-        r = re.compile(r'(\d+)\s*(euros\b|E\b|e\b|euro\b|Euro\b|Euros\b|\u20AC\s*)')
+        content = get_desc(li)
+        r = re.compile(r'(\d*\s*\d+)\s*(euros\b|E\b|e\b|euro\b|Euro\b|Euros\b|\u20AC\s*)')
         found = r.findall(content)
         if len(found) != 1:
             price = 0
         else:
-            price = int(found[0][0])
+            found_price = ''
+            for i in found[0][0].split():
+                found_price += i
+            price = int(found_price)
         return price
 
 
@@ -74,3 +77,6 @@ def get_desc(li):
 
 def get_title(li):
     return li.a['title']
+
+def get_id(li):
+    return li.find(class_='saveAd')['data-savead-id']
