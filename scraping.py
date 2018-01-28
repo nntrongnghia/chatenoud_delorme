@@ -150,3 +150,6 @@ dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
 #on va utiliser l'objet datetime.datetime
 #car c'est facile a traiter et trier
 #FIN SAMPLE CODE =================
+
+#trouver ID de l'annonce
+iden = li.find(class_='saveAd')['data-savead-id']

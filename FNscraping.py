@@ -74,3 +74,6 @@ def get_desc(li):
 
 def get_title(li):
     return li.a['title']
+
+def get_id(li):
+    return li.find(class_='saveAd')['data-savead-id']
