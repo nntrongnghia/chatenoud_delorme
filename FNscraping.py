@@ -30,8 +30,14 @@ def get_price(li):
         price = int(price)
         return price
     except:
-        
-        return 0
+        get_desc(li)
+        r = re.compile(r'(\d+)\s*(euros\b|E\b|e\b|euro\b|Euro\b|Euros\b|\u20AC\s*)')
+        found = r.findall(content)
+        if len(found) != 1:
+            price = 0
+        else:
+            price = int(found[0][0])
+        return price
 
 
 def get_date(li):
@@ -49,3 +55,27 @@ def get_cat(li):
     for match in matches:
         categorie =match.group(2)
     return categorie
+
+#obtenir la description
+def get_desc(li):
+    try:
+        link = get_link(li)
+        link = 'http:'+link   
+        page_annonce = requests.get(link)
+        page_soup = soup(page_annonce.content,'html.parser')
+        desc_html = page_soup.find_all(class_='line properties_description')[0]
+        desc_split = desc_html.text.split()
+        desc = ''
+        for s in desc_split:
+            desc = desc + ' ' + s
+        return desc
+    except:
+        return 'Nouvelle type de page sur leboncoin'
+
+def get_title(li):
+    sentence = str(li)
+    targgettitle = re.compile(r'(<span class="lazyload" data-imgalt=")(.+?)(" data-imgsrc=)')
+    matches =targgettitle.finditer(sentence)
+    for match in matches:
+        title = match.group(2)
+    return title
