@@ -13,8 +13,9 @@
 - lister des categories que l'on veut - Hako
 - modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony mais apres Hako
 - grouper des departements en categories en fonction de la distance
-    - scrap des noms de villes - Hako
-    - scrap des coordonnees - Tony
+    - scrap des noms de villes - Hako #
+    - scrap des coordonnees - Tony #
+    - calculer la distance - Hako
 - achitecture du programme principal - ensemble
 - stocker des donnees - Tony
 
