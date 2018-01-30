@@ -10,24 +10,14 @@ from math import radians
 #Bon mon pote , je vais essayer de creer ma premiere fonction :/
 # cette fonction va donner la distance entre une ville et chatenoud
 # les coordonés GPS de chatenoud sonts :
-# longitude : 43.3353913
-# latitude  : 5.408912999999984
+# lattitude : 43.3353913
+# longitude  : 5.408912999999984
 # il faut mettre la longitude en premier (axe des x)
-def get_distance_from_marseille(lx,ly):
-    #distancefrommarseille = sqrt(abs((lx-5.408912999999984)*abs(lx-5.408912999999984))+(abs((ly-43.3353913)*abs(ly-43.3353913)))
-    longc = 43.3353913
-    latc = 5.408912999999984
-    d = 60*(acos(sin(radians(longc))*sin(radians(xb))+cos(radians(longc))*cos(radians(xb))*cos(radians(latc-yb))))
-    f = 7.118166370178405
-    LatB = 43.6958814
-    LongB = 7.2353266999
-    
-    LatA = latc
-    LongA = longc
-
-    d =    acos((cos(LatA)) * (cos(radians(LatB)) * cos(radians(LongB-LongA))+ sin(radians(LatA)) * sin(radians(LatB))))
-    #cela devrais nous donner une valeur absolue de la distance donc pas de soucis pour le signe 
-    dfmkm = distancefrommarseille * 81.32726790524839
+def get_distance_from_marseille(lat,lon):
+    latc = 43.3353913
+    longc = 5.408912999999984
+    distancefrommarseille = sqrt((lat-latc)*(lat-latc)+(lon-longc)*(lon-longc))
+    dfmkm = distancefrommarseille*111
     # 81.32726790524839 est l'unité bizzare qui converti la valeur en km
     return dfmkm
 
