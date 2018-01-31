@@ -21,13 +21,41 @@ sect_ul = list(section_html.children)[1]
 li_list = sect_ul.find_all('li')
 
 if 0:
-    if category = phone , voitre
+    if CategoryChoice = 'Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie'
 
     /http
 
 #=================================================================
 #===================    Partie de Hako ci-dessous      ======================
 #=================================================================
+
+#PREMIER FILTRE !! (on apellera global_filter)
+#Cette fonction filtre laliste li_list par un pris < a 50 et une 
+# categorie comprise dans la variable : CategoryChoice .
+sentence = str(li_list[0])
+
+for i in li_list:
+    IsGood = True
+    IsPriceGood = True
+    IsCatGood = True
+    get_price(i)
+    if price < 49:
+        IsPriceGood = False
+    get_cat(i)
+    for ii in CategoryChoice:
+        if ii == categorie :
+            IsCatGood = True  
+            break
+        else : 
+            IsCatGood = False
+    if IsPriceGood == False:
+        IsGood = False
+    if IsCatGood == False:
+        IsGood = False
+    print(IsGood)
+# IT WORKS !!! yeaah
+
+
 
 #-----------------------------------------------------
 #   FONCTION TROUVER CAEGORIE
