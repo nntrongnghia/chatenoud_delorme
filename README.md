@@ -9,13 +9,14 @@
     - prix
     - date (necessiter d'une fonction pour traiter la date actuelle)
     - lien de l'annonce
-==================================================================
-- lister des categories que l'on veut - Hako
-- modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony mais apres Hako
 - grouper des departements en categories en fonction de la distance
     - scrap des noms de villes - Hako #
     - scrap des coordonnees - Tony #
-    - calculer la distance - Hako
+    - calculer la distance - Hako #
+- lister des categories que l'on veut - Hako
+
+==================================================================
+- modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony mais apres Hako
 - achitecture du programme principal - ensemble
 - stocker des donnees - Tony
 
