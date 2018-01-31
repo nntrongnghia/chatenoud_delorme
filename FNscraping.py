@@ -37,7 +37,7 @@ def get_distance_from_marseille(lon,lat):
     distkm = dist * 6378.137 
     #CA MAAAAAAAAAAAARCHE !!!!!!!!!! 
     #pour Chatenoud - Hô Chi Minh-Ville (10 072 km) = 10 083.5 
-    #taux d'erreurs : 0.112 %
+    #taux d'erreurs : 11 km ( 0.112 % )
     return distkm
 
 

@@ -20,7 +20,10 @@ sect_ul = list(section_html.children)[1]
 #section ul [li*35]
 li_list = sect_ul.find_all('li')
 
+if 0:
+    if category = phone , voitre
 
+    /http
 
 #=================================================================
 #===================    Partie de Hako ci-dessous      ======================
@@ -57,7 +60,6 @@ for match in matches:
 #-----------------------------------------------------
 #   FONCTION TROUVER LIEU (VILLE ET DEPARTEMENT)
 
-#<meta content="La Seyne-sur-Mer" itemprop="address">
 
 sentence = str(li_list[4])
 
@@ -69,6 +71,10 @@ for match in matches:
         departement=match  
     else:
         ville = match 
+
+
+#-----------------------------------------------------
+#   FONCTION TROUVER TITRE
 
 
 #===================================================================
