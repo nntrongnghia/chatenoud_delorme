@@ -6,20 +6,19 @@ from math import sqrt
 from math import asin
 from math import sin
 from math import cos
-from math import radians
-# cette fonction va donner la distance entre une ville et chatenoud
-# les coordonés GPS de chatenoud sonts :
-# lattitude : 43.3353913
-# longitude  : 5.408912999999984
-#x = longitude
-#y = lattitude
-# il faut mettre la longitude en premier (axe des x)
+
 def get_distance_from_marseille(lon,lat):
+    # les coordonés GPS de chatenoud sonts :
+    # lattitude : 43.3353913
+    # longitude  : 5.408912999999984
+    #   x = longitude
+    #   y = lattitude
+    # il faut mettre la longitude en premier (axe des x)
+
+
     #coordonees de chatenoud
     latc = 43.3353913
     longc = 5.408912999999984
-    lat = 10.8230989
-    lon = 106.6296638
     
     #convertion des degrés en radians
     rlon = 0.017453293 * lon
