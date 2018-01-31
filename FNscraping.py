@@ -3,23 +3,43 @@ import re
 from bs4 import BeautifulSoup as soup
 from datetime import datetime
 from math import sqrt
-from math import acos
+from math import asin
 from math import sin
 from math import cos
 from math import radians
-#Bon mon pote , je vais essayer de creer ma premiere fonction :/
 # cette fonction va donner la distance entre une ville et chatenoud
 # les coordonés GPS de chatenoud sonts :
 # lattitude : 43.3353913
 # longitude  : 5.408912999999984
+#x = longitude
+#y = lattitude
 # il faut mettre la longitude en premier (axe des x)
-def get_distance_from_marseille(lat,lon):
+def get_distance_from_marseille(lon,lat):
+    #coordonees de chatenoud
     latc = 43.3353913
     longc = 5.408912999999984
-    distancefrommarseille = sqrt((lat-latc)*(lat-latc)+(lon-longc)*(lon-longc))
-    dfmkm = distancefrommarseille*111
-    # 81.32726790524839 est l'unité bizzare qui converti la valeur en km
-    return dfmkm
+    lat = 10.8230989
+    lon = 106.6296638
+    
+    #convertion des degrés en radians
+    rlon = 0.017453293 * lon
+    rlat = 0.017453293 * lat
+    rlonc = 0.017453293 * longc 
+    rlatc = 0.017453293 * latc
+
+    #Calcule de la distance en Km
+    latSin = sin((rlat - rlatc)/2)
+    lonSin = sin((rlon - rlonc)/2)
+
+    #formule de Haversine:
+    dist = 2 * asin(sqrt((latSin*latSin) + cos(rlat) * cos(rlatc) * (lonSin * lonSin)))
+
+    # pour la distance en Km il faut multiplier la valeure trouvée par le rayon de la terre
+    distkm = dist * 6378.137 
+    #CA MAAAAAAAAAAAARCHE !!!!!!!!!! 
+    #pour Chatenoud - Hô Chi Minh-Ville (10 072 km) = 10 083.5 
+    #taux d'erreurs : 0.112 %
+    return distkm
 
 
 def get_li_list(url):
