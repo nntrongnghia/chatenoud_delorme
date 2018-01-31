@@ -14,11 +14,12 @@
     - scrap des coordonnees - Tony #
     - calculer la distance - Hako #
 - lister des categories que l'on veut - Hako
+- stocker des donnees - Tony
 
 ==================================================================
-- modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony mais apres Hako
+- modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony
 - achitecture du programme principal - ensemble
-- stocker des donnees - Tony
+
 
 
 ## BIBLIOTHEQUES NECESSSAIRES
