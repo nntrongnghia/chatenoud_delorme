@@ -21,10 +21,8 @@ sect_ul = list(section_html.children)[1]
 #section ul [li*35]
 li_list = sect_ul.find_all('li')
 
-if 0:
-    if CategoryChoice = 'Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie'
+CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
 
-    /http
 
 #=================================================================
 #===================    Partie de Hako ci-dessous      ======================
@@ -39,23 +37,17 @@ for i in li_list:
     IsGood = True
     IsPriceGood = True
     IsCatGood = True
-    get_price(i)
-    if price < 49:
+    price = scrap.get_price(i)
+    if (price < 49) or (price > 1400) :
         IsPriceGood = False
-    get_cat(i)
-    for ii in CategoryChoice:
-        if ii == categorie :
-            IsCatGood = True  
-            break
-        else : 
-            IsCatGood = False
-    if IsPriceGood == False:
-        IsGood = False
-    if IsCatGood == False:
+    categorie = scrap.get_cat(i)
+    if categorie not in CategoryChoice: 
+        IsCatGood = False
+    if (IsPriceGood == False) or (IsCatGood == False) :
         IsGood = False
     print(IsGood)
-# IT WORKS !!! yeaah
 
+# il faudrait essayer de supprimer au max de variables inutiles ...
 
 
 #-----------------------------------------------------
@@ -178,3 +170,16 @@ dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
 
 #trouver ID de l'annonce
 iden = li.find(class_='saveAd')['data-savead-id']
+
+
+
+#-----------------------------------------------------------------
+#Fonction Principale :
+X2 = li_list[34]
+for i in li_list:
+    if i == x 
+        X = li_list[0]
+    if li_list[34] != X:
+        #page suivante 
+
+
