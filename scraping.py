@@ -5,6 +5,7 @@ from datetime import datetime #bibliotheque pour traiter la date
 import FNscraping as scrap
 
 # just listing the operations - need to develop more fuctions to minimize the program
+cat = []
 
 url = "https://www.leboncoin.fr/annonces/offres/provence_alpes_cote_d_azur/"
 page = requests.get(url)
