@@ -14,28 +14,21 @@ def get_distance_from_marseille(lon,lat):
     #   x = longitude
     #   y = lattitude
     # il faut mettre la longitude en premier (axe des x)
-
-
     #coordonees de chatenoud
     latc = 43.3353913
     longc = 5.408912999999984
-    
     #convertion des degrés en radians
     rlon = 0.017453293 * lon
     rlat = 0.017453293 * lat
     rlonc = 0.017453293 * longc 
     rlatc = 0.017453293 * latc
-
     #Calcule de la distance en Km
     latSin = sin((rlat - rlatc)/2)
     lonSin = sin((rlon - rlonc)/2)
-
     #formule de Haversine:
     dist = 2 * asin(sqrt((latSin*latSin) + cos(rlat) * cos(rlatc) * (lonSin * lonSin)))
-
     # pour la distance en Km il faut multiplier la valeure trouvée par le rayon de la terre
     distkm = dist * 6378.137 
-    #CA MAAAAAAAAAAAARCHE !!!!!!!!!! 
     #pour Chatenoud - Hô Chi Minh-Ville (10 072 km) = 10 083.5 
     #taux d'erreurs : 11 km ( 0.112 % )
     return distkm
@@ -56,29 +49,29 @@ def get_link(li):
     link = li.a['href']
     return link
 
-def get_price(li):
-    try:
-        item_price = li.a.find(class_='item_price').text.split()
-        item_price = item_price[:3]
-        #tirer le prix dans le list ci-dessus et transformer sous type float
-        price_str = [s for s in item_price if s.isdigit()]
-        price = ''
-        for s in price_str:
-            price += s
-        price = int(price)
-        return price
-    except:
-        content = get_desc(li)
-        r = re.compile(r'(\d*\s*\d+)\s*(euros\b|E\b|e\b|euro\b|Euro\b|Euros\b|\u20AC\s*)')
-        found = r.findall(content)
-        if len(found) != 1:
-            price = 0
-        else:
-            found_price = ''
-            for i in found[0][0].split():
-                found_price += i
-            price = int(found_price)
-        return price
+def get_price_li(li):
+    item_price = li.a.find(class_='item_price').text.split()
+    item_price = item_price[:3]
+    #tirer le prix dans le list ci-dessus et transformer sous type float
+    price_str = [s for s in item_price if s.isdigit()]
+    price = ''
+    for s in price_str:
+        price += s
+    price = int(price)
+    return price
+    
+
+def get_price_desc(content):
+    r = re.compile(r'(\d*\s*\d+)\s*(euros\b|E\b|e\b|euro\b|Euro\b|Euros\b|\u20AC\s*)')
+    found = r.findall(content)
+    if len(found) != 1:
+        price = 0
+    else:
+        found_price = ''
+        for i in found[0][0].split():
+            found_price += i
+        price = int(found_price)
+    return price
 
 
 
