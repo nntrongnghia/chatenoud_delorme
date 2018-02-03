@@ -93,11 +93,11 @@ def get_cat(li):
 
 #obtenir la description
 def get_desc(li):
-    try:
-        link = get_link(li)
-        link = 'http:'+link   
-        page_annonce = requests.get(link)
-        page_soup = soup(page_annonce.content,'html.parser')
+    link = get_link(li)
+    link = 'http:'+link   
+    page_annonce = requests.get(link)
+    page_soup = soup(page_annonce.content,'html.parser')
+    try: 
         desc_html = page_soup.find_all(class_='line properties_description')[0]
         desc_split = desc_html.text.split()
         desc = ''
@@ -105,7 +105,10 @@ def get_desc(li):
             desc = desc + ' ' + s
         return desc
     except:
-        return 'Nouvelle type de page sur leboncoin'
+        page_html = str(page_soup)
+        r = re.compile(r'<div data-qa-id="adview_description_container"" data-reactid="103"><div data-reactid="104"><span data-reactid="15>05">(.*)</span></div><div class="_3ey2y" data-reactid="106">')
+        desc = r.findall(page_html)
+        return desc
 
 def get_title(li):
     return li.a['title']

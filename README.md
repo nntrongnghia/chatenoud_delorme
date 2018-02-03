@@ -33,3 +33,4 @@ from datetime import datetime
 - leboncoin viens de changer l'interface de page. Il faut tester plus, notamment la fonc get_desc.
 - la fonc get_desc a besoin modeliser pour chaque categorie.
 - C'est mieux d'obtenir le code postal, parce que le code est unique, c'est facile a comparer, a traiter. Si on n'a que le nom de ville ou departement, le traitement sera plus difficile.
+- ** get_desc ** ne marche plus avec la nouvelle l'interface de leboncoin.
