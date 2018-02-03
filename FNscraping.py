@@ -132,3 +132,11 @@ def get_city(li):
         if match not in paca:
             ville=match  
     return ville
+
+#return TRUE if there is a connection
+def connection_check():
+    try:
+        requests.get('https://www.google.fr')
+        return True
+    except:
+        return False
