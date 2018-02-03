@@ -17,7 +17,7 @@
 - stocker des donnees - Tony
 - modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony
 j'ai creer 2 fonctions pour prendre le prix (get_price_li et get_price_desc)
-
+- Tester la connection avant telecharger html
 ==================================================================
 - achitecture du programme principal - ensemble
 
@@ -29,7 +29,6 @@ from bs4 import BeautifulSoup as soup
 from datetime import datetime
 
 ## PROBLEMES
-- Tester la connection avant telecharger html
 - get_date with urgent annonce
 - leboncoin viens de changer l'interface de page. Il faut tester plus, notamment la fonc get_desc.
 - la fonc get_desc a besoin modeliser pour chaque categorie.
