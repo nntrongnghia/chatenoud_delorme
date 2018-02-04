@@ -106,8 +106,8 @@ def get_desc(li):
         return desc
     except:
         page_html = str(page_soup)
-        r = re.compile(r'<div data-qa-id="adview_description_container"" data-reactid="103"><div data-reactid="104"><span data-reactid="15>05">(.*)</span></div><div class="_3ey2y" data-reactid="106">')
-        desc = r.findall(page_html)
+        r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
+        desc = r.findall(page_html)[0]
         return desc
 
 def get_title(li):
