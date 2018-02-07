@@ -28,8 +28,11 @@ CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Té
 #===================    Partie de Hako ci-dessous      ======================
 #=================================================================
 
+#sous catégories :
+Iphone :'iphone','Iphone','i phone','I phone','iPhone','IPhone','i Phone','I Phone','IPHONE','I PHONE'
+#------------------------------------------------------------
 #PREMIER FILTRE !! (on apellera global_filter)
-#Cette fonction filtre laliste li_list par un pris < a 50 et une 
+#Cette fonction filtre la liste li_list par un prix < a 50 et une 
 # categorie comprise dans la variable : CategoryChoice .
 sentence = str(li_list[0])
 
@@ -172,14 +175,51 @@ dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
 iden = li.find(class_='saveAd')['data-savead-id']
 
 
-
 #-----------------------------------------------------------------
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+
+
 #Fonction Principale :
 X2 = li_list[34]
-for i in li_list:
-    if i == x 
-        X = li_list[0]
-    if li_list[34] != X:
-        #page suivante 
 
+CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
+
+connexionTest = connection_check():
+if connexionTest == True :
+
+    for i in li_list:
+        if i == x 
+            X = li_list[0]
+        #=================================================
+        #Filtre + Get_Data
+        HaveDesc = False
+        categorie = scrap.get_cat(i)
+        if CategoryChoice != categorie :
+            IsGood = False
+            #j ai une super idée !! fait moi penser a t'expliquer
+        else :
+            price = scrap.get_price(i)
+
+            if "Erreur":
+                desc = get_desc(i)
+                price = get_price_desc(desc)
+                HaveDesc = True
+
+            if (price < 49) or (price > 1400) :
+                IsGood = False# pas indispensable
+
+# a terminer ( j en suis a la fin du filtre (au dos de la feuille ))
+
+            else:
+                IsGood = True # pas indispensable
+            
+
+
+        #=================================================
+        if li_list[34] != X:
+            X = li_list[0]
+
+#attendre quelques secondes ....
 
