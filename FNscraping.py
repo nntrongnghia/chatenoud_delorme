@@ -76,10 +76,16 @@ def get_price_desc(content):
 
 
 def get_date(li):
-    date_html = li.a.find_all(class_='item_supp')[-1]
-    d = date_html['content']
-    h = date_html.text.split()[-1]
-    dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
+    try:
+        date_html = li.a.find_all(class_='item_supp')[-1]
+        d = date_html['content']
+        h = date_html.text.split()[-1]
+        dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
+    except:
+        date_html = li.a.find_all('p',class_='item_supp')[-1]
+        d = date_html['content']
+        h = date_html.text.split()[-1]
+        dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
     return dt
 
 def get_cat(li):
