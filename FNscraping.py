@@ -6,6 +6,7 @@ from math import sqrt
 from math import asin
 from math import sin
 from math import cos
+import sqlite3 as sql
 
 def get_distance_from_marseille(lon,lat):
     # les coordonés GPS de chatenoud sonts :
@@ -149,3 +150,12 @@ def connection_check():
         return True
     except:
         return False
+
+def save_data(Id=None,title=None,cat=None,price=None,desc=None,link=None,department=None,city=None,code=None,date=None):
+    conn = sql.connect('lbc.db')
+    c = conn.cursor()
+    values = (Id,title,cat,price,desc,link,department,city,code,date)
+    c.execute("INSERT INTO annonce VALUES (?,?,?,?,?,?,?,?,?,?)", values)
+    conn.commit() 
+    conn.close()
+    return None
