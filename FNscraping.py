@@ -151,6 +151,7 @@ def connection_check():
     except:
         return False
 
+#stocker des donnees dans un tableau dans le database lbc.db
 def save_data(Id=None,title=None,cat=None,price=None,desc=None,link=None,department=None,city=None,code=None,date=None):
     conn = sql.connect('lbc.db')
     c = conn.cursor()
