@@ -186,40 +186,50 @@ X2 = li_list[34]
 
 CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
 
-connexionTest = connection_check():
+connexionTest = scrap.connection_check()
 if connexionTest == True :
 
     for i in li_list:
-        if i == x 
-            X = li_list[0]
+        IsGood = True    
+        Id = scrap.get_id(i)
+        try:
+            if Id == x :
+                x = scrap.get_id(li_list[0])
+                break
+        except:
+            x = scrap.get_id(li_list[34])
         #=================================================
         #Filtre + Get_Data
         HaveDesc = False
         categorie = scrap.get_cat(i)
-        if CategoryChoice != categorie :
-            IsGood = False
-            #j ai une super idée !! fait moi penser a t'expliquer
-        else :
-            price = scrap.get_price(i)
+        if  categorie in CategoryChoice :
 
-            if "Erreur":
-                desc = get_desc(i)
-                price = get_price_desc(desc)
+            try:
+
+                price = scrap.get_price_li(i)           
+
+            except :
+
+                desc = scrap.get_desc(i)
+                price = scrap.get_price_desc(desc)
                 HaveDesc = True
 
-            if (price < 49) or (price > 1400) :
-                IsGood = False# pas indispensable
+            if (price > 49) and (price < 1400) :
+                if HaveDesc == False :
+                    desc = scrap.get_desc(i)
+                date = scrap.get_date(i)
+                titre = scrap.get_title(i)
+                
+                departement = scrap.get_department(i)
+                ville = scrap.get_city(i)
+                # il faut rajouter le code postal !!!
 
-# a terminer ( j en suis a la fin du filtre (au dos de la feuille ))
-
-            else:
-                IsGood = True # pas indispensable
-            
-
-
+                # rentrer les bonnes annonces dans un tableau ici !!!
         #=================================================
-        if li_list[34] != X:
-            X = li_list[0]
+        if scrap.get_id(li_list[34]) != x:
+            x = scrap.get_id(li_list[0])
+            # envoyer un message pour dire "on a perdu le x!!"
+            break
 
 #attendre quelques secondes ....
 
