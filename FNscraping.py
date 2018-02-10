@@ -195,3 +195,8 @@ def get_desc_code(li):
     result['desc'] = desc
     result['code'] = code
     return result
+
+def send_log(message):
+    with open('log.txt','a') as f:
+        f.write('\n' + message)
+    return None
