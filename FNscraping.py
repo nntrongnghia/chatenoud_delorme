@@ -185,6 +185,8 @@ def get_desc_code(li):
         page_html = str(page_soup)
         r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
         desc = r.findall(page_html)[0]
+        r1 = re.compile(r'(<br/>)')
+        desc = r1.sub(r' ',desc)
 
         code_text = page_soup.find_all(class_='_1aCZv')[0].text
         r2 = re.compile(r'\D(\d{5})\D')
