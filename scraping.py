@@ -226,9 +226,10 @@ if connexionTest == True :
 
                 # rentrer les bonnes annonces dans un tableau ici !!!
         #=================================================
-        if scrap.get_id(li_list[34]) != x:
+        if i == li_list[-1] and scrap.get_id(li_list[-1]) != x:
+
             x = scrap.get_id(li_list[0])
-            # envoyer un message pour dire "on a perdu le x!!"
+            # envoyer un message pour dire "on a perdu le x , chef !!"
             break
 
 #attendre quelques secondes ....
