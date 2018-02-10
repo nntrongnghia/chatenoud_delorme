@@ -6,6 +6,7 @@ from math import sqrt
 from math import asin
 from math import sin
 from math import cos
+import sqlite3 as sql
 
 def get_distance_from_marseille(lon,lat):
     # les coordonés GPS de chatenoud sonts :
@@ -76,10 +77,16 @@ def get_price_desc(content):
 
 
 def get_date(li):
-    date_html = li.a.find_all(class_='item_supp')[-1]
-    d = date_html['content']
-    h = date_html.text.split()[-1]
-    dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
+    try:
+        date_html = li.a.find_all(class_='item_supp')[-1]
+        d = date_html['content']
+        h = date_html.text.split()[-1]
+        dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
+    except:
+        date_html = li.a.find_all('p',class_='item_supp')[-1]
+        d = date_html['content']
+        h = date_html.text.split()[-1]
+        dt = datetime.strptime(d + ' ' + h,'%Y-%m-%d %H:%M')
     return dt
 
 def get_cat(li):
@@ -136,6 +143,7 @@ def get_city(li):
             ville=match  
     return ville
 
+
 #return TRUE if there is a connection
 def connection_check():
     try:
@@ -143,3 +151,47 @@ def connection_check():
         return True
     except:
         return False
+
+#stocker des donnees dans un tableau dans le database lbc.db
+def save_data(Id=None,title=None,cat=None,price=None,desc=None,link=None,department=None,city=None,code=None,date=None):
+    conn = sql.connect('lbc.db')
+    c = conn.cursor()
+    values = (Id,title,cat,price,desc,link,department,city,code,date)
+    c.execute("INSERT INTO annonce VALUES (?,?,?,?,?,?,?,?,?,?)", values)
+    conn.commit() 
+    conn.close()
+    return None
+
+#obtenir la description et le code postal
+#renvoyer une dictionaire de 2 mots cles: 'desc' et 'code'
+def get_desc_code(li):
+    link = get_link(li)
+    link = 'http:'+link   
+    page_annonce = requests.get(link)
+    page_soup = soup(page_annonce.content,'html.parser')
+    result = {'desc':None, 'code':None}
+
+    try: 
+        desc_html = page_soup.find_all(class_='line properties_description')[0]
+        desc_split = desc_html.text.split()
+        desc = ''
+        for s in desc_split:
+            desc = desc + ' ' + s
+        #obtenir code postal   
+        code = page_soup.find_all(class_='line line_city')[0].find_all(class_='value')[0].text.split()[-1]
+        #return desc
+
+    except:
+        page_html = str(page_soup)
+        r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
+        desc = r.findall(page_html)[0]
+        r1 = re.compile(r'(<br/>)')
+        desc = r1.sub(r' ',desc)
+
+        code_text = page_soup.find_all(class_='_1aCZv')[0].text
+        r2 = re.compile(r'\D(\d{5})\D')
+        code = r2.findall(code_text)[0]
+
+    result['desc'] = desc
+    result['code'] = code
+    return result
