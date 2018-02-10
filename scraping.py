@@ -202,28 +202,28 @@ if connexionTest == True :
         #Filtre + Get_Data
         HaveDesc = False
         categorie = scrap.get_cat(i)
-        if  categorie in CategoryChoice :
-
+        departement = scrap.get_department(i)
+        if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
             try:
 
                 price = scrap.get_price_li(i)           
 
             except :
-
-                desc = scrap.get_desc(i)
+                desc_code = scrap.get_desc_code(i)
+                desc = desc_code['desc']
                 price = scrap.get_price_desc(desc)
                 HaveDesc = True
 
             if (price > 49) and (price < 1400) :
                 if HaveDesc == False :
-                    desc = scrap.get_desc(i)
+                    desc_code = scrap.get_desc_code(i)
+                    desc = desc_code['desc']
+                
                 date = scrap.get_date(i)
                 titre = scrap.get_title(i)
-                
-                departement = scrap.get_department(i)
                 ville = scrap.get_city(i)
                 # il faut rajouter le code postal !!!
-
+                code_postal = desc_code['code']
                 # rentrer les bonnes annonces dans un tableau ici !!!
         #=================================================
         if i == li_list[-1] and scrap.get_id(li_list[-1]) != x:

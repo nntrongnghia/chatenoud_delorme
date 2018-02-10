@@ -18,8 +18,10 @@
 - modifier get_price pour gagner du temps (marcher que avec des categories interessantes) - Tony
 j'ai creer 2 fonctions pour prendre le prix (get_price_li et get_price_desc)
 - Tester la connection avant telecharger html
-==================================================================
 - achitecture du programme principal - ensemble
+==================================================================
+- tester la fonction principale
+- probleme de distance avec code postal <--> leboncoin
 
 
 
