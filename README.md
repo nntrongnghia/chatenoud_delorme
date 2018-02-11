@@ -19,9 +19,14 @@
 j'ai creer 2 fonctions pour prendre le prix (get_price_li et get_price_desc)
 - Tester la connection avant telecharger html
 - achitecture du programme principal - ensemble
-==================================================================
 - tester la fonction principale
-- probleme de distance avec code postal <--> leboncoin
+==================================================================
+- dans la nouvelle interface, la desc et le code postal ne sont pas trouves pour certains annonces - Tony
+- Pour le titre et la desc, suprimmer les accents et les changer sous forme minuscule - Hako
+    - Pour changer sous forme minuscule: s.lower() avec s est une variable 'string'
+- Ameliorer l'architecture principale pour avoir mois de perte de X (integrer la page 2) - Hako
+- Regular Expression pour classifier des annonces - Hako
+- probleme de distance avec code postal <--> leboncoin - Tony
 
 
 
@@ -32,4 +37,4 @@ from datetime import datetime
 
 ## PROBLEMES
 - leboncoin viens de changer l'interface de page. Il faut tester plus, notamment la fonc get_desc.
-- la fonc get_desc a besoin modeliser pour chaque categorie.
+
