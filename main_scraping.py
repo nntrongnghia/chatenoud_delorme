@@ -29,7 +29,7 @@ while 1:
             departement = scrap.get_department(i)
             #POUR TESTER, J'AI ENLEVE DES FILTRES
             #if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
-            if departement == 'Bouches-du-Rhône':
+            if True:
                 try:
                     price = scrap.get_price_li(i)           
                 except :
@@ -57,8 +57,8 @@ while 1:
                 # envoyer un message pour dire "on a perdu le x , chef !!"
                 scrap.send_log('on a perdu le x , chef !!' + '  ' + str(date))
                 break
-
+        #POUR TESTER
+        print('I have just finished 1 loop!')
     #attendre quelques secondes ..
-    time.sleep(5)
-    #POUR TESTER
-    print('I have just finished 1 loop!')
+    time.sleep(2)
+    

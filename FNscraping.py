@@ -184,13 +184,22 @@ def get_desc_code(li):
     except:
         page_html = str(page_soup)
         r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
-        desc = r.findall(page_html)[0]
+        if len(r.findall(page_html)) == 0:
+            desc = 'Not found'
+        else:
+            desc = r.findall(page_html)[0]
         r1 = re.compile(r'(<br/>)')
         desc = r1.sub(r' ',desc)
 
-        code_text = page_soup.find_all(class_='_1aCZv')[0].text
-        r2 = re.compile(r'\D(\d{5})\D')
-        code = r2.findall(code_text)[0]
+        if len(page_soup.find_all(class_='_1aCZv')) != 0:
+            code_text = page_soup.find_all(class_='_1aCZv')[0].text
+            r2 = re.compile(r'\D(\d{5})\D')
+            if len(r2.findall(code_text)) == 0:
+                code = 'Not found' 
+            else:
+                code = r2.findall(code_text)[0]
+        else:
+            code = 'Not found the html class'
 
     result['desc'] = desc
     result['code'] = code
