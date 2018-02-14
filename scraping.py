@@ -182,7 +182,6 @@ iden = li.find(class_='saveAd')['data-savead-id']
 
 
 #Fonction Principale :
-X2 = li_list[34]
 
 CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
 
@@ -232,5 +231,49 @@ if connexionTest == True :
             # envoyer un message pour dire "on a perdu le x , chef !!"
             break
 
+
+scrap.get_li_list("https://www.leboncoin.fr/annonces/offres/provence_alpes_cote_d_azur/?o=2")
+
 #attendre quelques secondes ....
 
+
+
+
+
+
+
+
+
+
+
+TEEEEEEEESTE !!!!!!!
+
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+
+
+#Fonction Principale :
+
+CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
+
+connexionTest = scrap.connection_check()
+if connexionTest == True :
+
+    for i in li_list:
+        IsGood = True    
+        Id = scrap.get_id(i)
+        if i == 0 ;
+            x1 = Id
+        try:
+            if Id == x2 :
+                if x2 == x1 ;
+                    break
+                x2=x1
+        except:
+            x = scrap.get_id(li_list[34])
+        #=================================================
+        #Filtre + Get_Data
+          #ou alors on cree une variable "aviable to get datta"
+        #=================================================
