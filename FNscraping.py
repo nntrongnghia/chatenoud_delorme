@@ -192,3 +192,11 @@ def send_log(message):
     with open('log.txt','a') as f:
         f.write('\n' + message)
     return None
+
+
+
+def not_maj_space(t):
+    u = t.lower()
+    tc = u.replace(" ","")
+    return tc
+
