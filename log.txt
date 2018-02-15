@@ -27,3 +27,172 @@ on a perdu le x , chef !!  2018-02-11 14:17:00
 on a perdu le x , chef !!  2018-02-11 14:06:00
 on a perdu le x , chef !!  2018-02-11 14:17:00
 on a perdu le x , chef !!  2018-02-11 17:28:00
+Failed to get html
+Failed to get html
+Failed to get html
+on a perdu le x , chef !!  2018-02-11 20:17:00
+Failed to get html
+on a perdu le x , chef !!  2018-02-11 20:28:00
+on a perdu le x , chef !!  2018-02-11 20:41:00
+Failed to get html
+Failed to get html
+on a perdu le x , chef !!  2018-02-11 20:52:00
+Failed to get html
+on a perdu le x , chef !!  2018-02-11 21:36:00
+
+on a perdu le x , chef !!  2018-02-12 12:33:00 2018-02-12 12:47:30.053234
+on a perdu le x , chef !!  2018-02-12 13:08:00 2018-02-12 13:21:09.691787
+Failed to get html 2018-02-12 13:31:35.693378
+on a perdu le x , chef !!  2018-02-12 13:18:00 2018-02-12 13:31:55.563485
+Failed to get html 2018-02-12 13:42:37.969624
+Failed to get html 2018-02-12 13:42:45.506683
+Failed to get html 2018-02-12 13:42:48.042419
+on a perdu le x , chef !!  2018-02-12 13:30:00 2018-02-12 13:43:01.608962
+Failed to get html 2018-02-12 13:53:33.677856
+Failed to get html 2018-02-12 13:53:34.823138
+Failed to get html 2018-02-12 13:53:44.419668
+on a perdu le x , chef !!  2018-02-12 13:41:00 2018-02-12 13:53:55.885372
+Failed to get html 2018-02-12 14:04:35.303839
+Failed to get html 2018-02-12 14:04:37.705799
+on a perdu le x , chef !!  2018-02-12 13:52:00 2018-02-12 14:04:50.703084
+on a perdu le x , chef !!  2018-02-12 14:03:00 2018-02-12 14:16:15.128453
+on a perdu le x , chef !!  2018-02-12 14:15:00 2018-02-12 14:27:49.907182
+Failed to get html 2018-02-12 14:38:33.476584
+Failed to get html 2018-02-12 14:38:35.885654
+Failed to get html 2018-02-12 14:38:41.895606
+Failed to get html 2018-02-12 14:38:45.680572
+on a perdu le x , chef !!  2018-02-12 14:25:00 2018-02-12 14:38:50.100552
+Failed to get html 2018-02-12 14:49:29.204840
+Failed to get html 2018-02-12 14:49:33.128657
+on a perdu le x , chef !!  2018-02-12 14:37:00 2018-02-12 14:49:46.006151
+Failed to get html 2018-02-12 15:00:23.324322
+Failed to get html 2018-02-12 15:00:24.477933
+Failed to get html 2018-02-12 15:00:27.046447
+Failed to get html 2018-02-12 15:00:29.757349
+Failed to get html 2018-02-12 15:00:32.209695
+on a perdu le x , chef !!  2018-02-12 14:48:00 2018-02-12 15:00:47.156107
+Failed to get html 2018-02-12 15:12:25.942091
+Failed to get html 2018-02-12 17:59:35.385538
+Failed to get html 2018-02-12 17:59:36.551484
+Failed to get html 2018-02-12 17:59:39.212208
+on a perdu le x , chef !!  2018-02-12 17:47:00 2018-02-12 17:59:49.032226
+Failed to get html 2018-02-12 18:10:56.064768
+Failed to get html 2018-02-12 18:11:09.594019
+on a perdu le x , chef !!  2018-02-12 17:58:00 2018-02-12 18:11:12.477096
+on a perdu le x , chef !!  2018-02-12 18:10:00 2018-02-12 18:23:13.070760
+on a perdu le x , chef !!  2018-02-12 18:21:00 2018-02-12 18:34:12.258173
+Failed to get html 2018-02-12 18:44:57.863068
+on a perdu le x , chef !!  2018-02-12 18:32:00 2018-02-12 18:45:11.533553
+on a perdu le x , chef !!  2018-02-12 18:45:00 2018-02-12 18:58:29.356145
+Failed to get html 2018-02-12 19:09:49.151035
+Failed to get html 2018-02-12 19:09:50.319426
+on a perdu le x , chef !!  2018-02-12 18:57:00 2018-02-12 19:10:14.001132
+Failed to get html 2018-02-12 19:20:52.094012
+Failed to get html 2018-02-12 19:20:56.668319
+on a perdu le x , chef !!  2018-02-12 19:08:00 2018-02-12 19:21:08.930975
+Failed to get html 2018-02-12 19:32:40.504570
+on a perdu le x , chef !!  2018-02-12 19:20:00 2018-02-12 19:32:57.330497
+Failed to get html 2018-02-12 19:43:27.051610
+Failed to get html 2018-02-12 19:43:35.154090
+Failed to get html 2018-02-12 19:43:36.327328
+Failed to get html 2018-02-12 19:43:37.602502
+Failed to get html 2018-02-12 19:43:38.806766
+Failed to get html 2018-02-12 19:43:40.002438
+Failed to get html 2018-02-12 19:43:44.434230
+on a perdu le x , chef !!  2018-02-12 19:31:00 2018-02-12 19:43:49.016059
+on a perdu le x , chef !!  2018-02-12 19:20:00 2018-02-12 19:44:21.791101
+on a perdu le x , chef !!  2018-02-12 19:31:00 2018-02-12 19:44:56.417821
+on a perdu le x , chef !!  2018-02-12 19:42:00 2018-02-12 19:55:24.882587
+Failed to get html 2018-02-12 20:06:41.050489
+Failed to get html 2018-02-12 20:06:45.127586
+on a perdu le x , chef !!  2018-02-12 19:54:00 2018-02-12 20:07:09.994112
+Failed to get html 2018-02-12 20:17:59.309209
+on a perdu le x , chef !!  2018-02-12 20:04:00 2018-02-12 20:18:25.928346
+on a perdu le x , chef !!  2018-02-12 20:16:00 2018-02-12 20:29:00.561896
+Failed to get html 2018-02-12 20:39:58.358675
+on a perdu le x , chef !!  2018-02-12 20:27:00 2018-02-12 20:40:07.691990
+Failed to get html 2018-02-12 20:51:44.149317
+Failed to get html 2018-02-12 20:51:47.008222
+Failed to get html 2018-02-12 20:51:48.270313
+Failed to get html 2018-02-12 20:51:51.478909
+on a perdu le x , chef !!  2018-02-12 20:39:00 2018-02-12 20:51:59.401557
+Failed to get html 2018-02-12 21:02:28.963360
+Failed to get html 2018-02-12 21:02:31.615238
+on a perdu le x , chef !!  2018-02-12 20:50:00 2018-02-12 21:02:50.254443
+Failed to get html 2018-02-12 21:14:16.816510
+Failed to get html 2018-02-12 21:14:18.027976
+on a perdu le x , chef !!  2018-02-12 21:00:00 2018-02-12 21:14:34.855188
+Failed to get html 2018-02-12 21:25:31.635624
+Failed to get html 2018-02-12 21:25:32.819669
+Failed to get html 2018-02-12 21:25:33.974907
+Failed to get html 2018-02-12 21:25:35.171845
+Failed to get html 2018-02-12 21:25:36.340265
+on a perdu le x , chef !!  2018-02-12 21:13:00 2018-02-12 21:25:38.060862
+on a perdu le x , chef !!  2018-02-12 21:23:00 2018-02-12 21:37:37.862688
+on a perdu le x , chef !!  2018-02-12 21:35:00 2018-02-12 21:49:25.406436
+Failed to get html 2018-02-12 21:59:38.996022
+Failed to get html 2018-02-12 21:59:40.152392
+Failed to get html 2018-02-12 21:59:41.344349
+Failed to get html 2018-02-12 21:59:42.540949
+Failed to get html 2018-02-12 21:59:48.392739
+Failed to get html 2018-02-12 21:59:51.138900
+on a perdu le x , chef !!  2018-02-12 21:46:00 2018-02-12 22:00:03.292775
+on a perdu le x , chef !!  2018-02-12 21:57:00 2018-02-12 22:11:19.360353
+Failed to get html 2018-02-12 22:21:42.152987
+Failed to get html 2018-02-12 22:21:44.913597
+on a perdu le x , chef !!  2018-02-12 22:08:00 2018-02-12 22:21:57.995371
+No connection  2018-02-12 22:33:26.946669
+No connection  2018-02-12 22:33:52.984503
+on a perdu le x , chef !!  2018-02-12 22:20:00 2018-02-12 22:34:18.978896
+on a perdu le x , chef !!  2018-02-12 22:31:00 2018-02-12 22:45:15.611051
+Failed to get html 2018-02-12 22:55:25.279137
+Failed to get html 2018-02-12 22:55:26.478449
+Failed to get html 2018-02-12 22:55:27.619437
+Failed to get html 2018-02-12 22:55:32.050268
+on a perdu le x , chef !!  2018-02-12 22:42:00 2018-02-12 22:55:42.992968
+Failed to get html 2018-02-12 23:06:31.718705
+on a perdu le x , chef !!  2018-02-12 22:53:00 2018-02-12 23:06:50.651290
+on a perdu le x , chef !!  2018-02-12 23:04:00 2018-02-12 23:18:26.783774
+on a perdu le x , chef !!  2018-02-13 19:06:00 2018-02-13 19:19:48.454536
+on a perdu le x , chef !!  2018-02-13 19:17:00 2018-02-13 19:30:46.755313
+Failed to get html 2018-02-13 21:10:48.369937
+on a perdu le x , chef !!  2018-02-13 20:57:00 2018-02-13 21:11:17.442186
+Failed to get html 2018-02-13 21:21:49.979201
+on a perdu le x , chef !!  2018-02-13 21:08:00 2018-02-13 21:22:11.421796
+Failed to get html 2018-02-13 21:32:29.959432
+Failed to get html 2018-02-13 21:32:31.334548
+Failed to get html 2018-02-13 21:32:34.417947
+on a perdu le x , chef !!  2018-02-13 21:19:00 2018-02-13 21:32:57.938106
+Failed to get html 2018-02-13 21:44:11.353638
+on a perdu le x , chef !!  2018-02-13 21:30:00 2018-02-13 21:44:32.192405
+No connection  2018-02-13 21:48:25.843547
+on a perdu le x , chef !!  2018-02-13 21:41:00 2018-02-13 21:55:43.340370
+No connection  2018-02-13 21:59:27.917095
+No connection  2018-02-13 22:01:31.143887
+on a perdu le x , chef !!  2018-02-13 21:53:00 2018-02-13 22:05:44.976696
+on a perdu le x , chef !!  2018-02-13 21:41:00 2018-02-13 22:06:25.573838
+on a perdu le x , chef !!  2018-02-13 21:53:00 2018-02-13 22:06:38.076422
+No connection  2018-02-13 22:10:53.869131
+No connection  2018-02-13 22:11:58.585723
+No connection  2018-02-13 22:13:28.662187
+Failed to get html 2018-02-13 22:17:06.603281
+on a perdu le x , chef !!  2018-02-13 22:03:00 2018-02-13 22:18:38.501650
+No connection  2018-02-13 22:22:11.736312
+Failed to get html 2018-02-13 22:28:34.886100
+Failed to get html 2018-02-13 22:28:41.014974
+on a perdu le x , chef !!  2018-02-13 22:15:00 2018-02-13 22:29:11.085352
+No connection  2018-02-13 22:34:33.085261
+No connection  2018-02-13 22:38:22.847668
+Failed to get html 2018-02-13 22:39:37.985881
+Failed to get html 2018-02-13 22:39:39.240461
+Failed to get html 2018-02-13 22:39:40.477345
+Failed to get html 2018-02-13 22:39:41.751362
+Failed to get html 2018-02-13 22:39:43.016445
+Failed to get html 2018-02-13 22:39:44.255791
+Failed to get html 2018-02-13 22:39:45.506226
+on a perdu le x , chef !!  2018-02-13 22:26:00 2018-02-13 22:40:05.477272
+No connection  2018-02-13 22:50:46.377488
+No connection  2018-02-13 22:51:02.442550
+No connection  2018-02-13 22:51:17.909345
+No connection  2018-02-13 22:51:43.925653
+No connection  2018-02-13 22:52:09.763201

@@ -1,5 +1,6 @@
 import FNscraping as scrap
 import time
+from datetime import datetime as dt
 
 #================ Configurer le programme pricipal
 CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
@@ -55,10 +56,14 @@ while 1:
             if i == li_list[-1] and scrap.get_id(li_list[-1]) != x:
                 x = scrap.get_id(li_list[0])
                 # envoyer un message pour dire "on a perdu le x , chef !!"
-                scrap.send_log('on a perdu le x , chef !!' + '  ' + str(date))
+                scrap.send_log('on a perdu le x , chef !!' + '  ' + str(date) + ' ' + str(dt.today()))
                 break
         #POUR TESTER
-        print('I have just finished 1 loop!')
+        print('I have just finished 1 loop!' + ' ' + str(dt.today()))
+        
+    else:
+        scrap.send_log('No connection  ' + str(dt.today()))
+
     #attendre quelques secondes ..
-    time.sleep(2)
+    time.sleep(5)
     
