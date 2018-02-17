@@ -7,6 +7,8 @@ from math import asin
 from math import sin
 from math import cos
 import sqlite3 as sql
+import time
+from datetime import datetime as dt
 
 def get_distance_from_marseille(lon,lat):
     # les coordonés GPS de chatenoud sonts :
@@ -121,9 +123,14 @@ def get_city(li):
     targgetville = re.compile(r'<meta content="(.+)" itemprop="address"')
     matches =targgetville.findall(sentence)
     paca = ['Alpes-Maritimes','Var','Hautes-Alpes','Alpes-de-Haute-Provence','Vaucluse','Bouches-du-Rhône']
-    for match in matches:
-        if match not in paca:
-            ville=match  
+    if len(matches) != 0:
+        for match in matches:
+            if match not in paca:
+                ville=match
+            else:
+                ville = 'Erreur'  
+    else:
+        ville = 'Erreur'
     return ville
 
 
@@ -150,39 +157,49 @@ def save_data(Id=None,title=None,cat=None,price=None,desc=None,link=None,departm
 def get_desc_code(li):
     link = get_link(li)
     link = 'http:'+link   
+    time.sleep(1)
     page_annonce = requests.get(link)
-    page_soup = soup(page_annonce.content,'html.parser')
     result = {'desc':None, 'code':None}
+    if page_annonce.status_code == requests.codes.ok:
+        page_soup = soup(page_annonce.content,'html.parser')
+        try: 
+            desc_html = page_soup.find_all(class_='line properties_description')[0]
+            desc_split = desc_html.text.split()
+            desc = ''
+            for s in desc_split:
+                desc = desc + ' ' + s
+            #obtenir code postal   
+            code = page_soup.find_all(class_='line line_city')[0].find_all(class_='value')[0].text.split()[-1]
+            #return desc
 
-    try: 
-        desc_html = page_soup.find_all(class_='line properties_description')[0]
-        desc_split = desc_html.text.split()
-        desc = ''
-        for s in desc_split:
-            desc = desc + ' ' + s
-        #obtenir code postal   
-        code = page_soup.find_all(class_='line line_city')[0].find_all(class_='value')[0].text.split()[-1]
-        #return desc
-
-    except:
-        page_html = str(page_soup)
-        r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
-        if len(r.findall(page_html)) == 0:
-            desc = 'Not found'
-        else:
-            desc = r.findall(page_html)[0]
-        r1 = re.compile(r'(<br/>)')
-        desc = r1.sub(r' ',desc)
-
-        if len(page_soup.find_all(class_='_1aCZv')) != 0:
-            code_text = page_soup.find_all(class_='_1aCZv')[0].text
-            r2 = re.compile(r'\D(\d{5})\D')
-            if len(r2.findall(code_text)) == 0:
-                code = 'Not found' 
+        except:
+            page_html = str(page_soup)
+            r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
+            if len(r.findall(page_html)) == 0:
+                desc = 'Not found'
+                print(desc)
             else:
-                code = r2.findall(code_text)[0]
-        else:
-            code = 'Not found the html class'
+                desc = r.findall(page_html)[0]
+
+            r1 = re.compile(r'(<br/>)')
+            desc = r1.sub(r' ',desc)
+
+            if len(page_soup.find_all(class_='_1aCZv')) != 0:
+                code_text = page_soup.find_all(class_='_1aCZv')[0].text
+                r2 = re.compile(r'\D(\d{5})\D')
+                if len(r2.findall(code_text)) == 0:
+                    code = 'Not found' 
+                    print(code)
+                else:
+                    code = r2.findall(code_text)[0]
+            else:
+                code = 'Not found the html class'
+                print(code)
+    else:
+        send_log('Failed to get html' + ' ' + str(dt.today()))
+        print('Failed to get html')
+        desc = 'Failed to get html'
+        code = 'Failed to get html'
 
     result['desc'] = desc
     result['code'] = code
