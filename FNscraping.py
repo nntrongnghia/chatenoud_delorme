@@ -36,6 +36,13 @@ def get_distance_from_marseille(lon,lat):
     #taux d'erreurs : 11 km ( 0.112 % )
     return distkm
 
+def find_latlon(df,code): #pas bon. ex:13106 13107 13105 13104
+    coor = {}
+    diff =  df['Code Postal'].apply(lambda x: abs(code-x))
+    i = diff[diff == diff.min()].index.tolist()[0]
+    coor['lat'] = df.loc[i]['Latitude']
+    coor['lon'] = df.loc[i]['Longitude']
+    return coor
 
 def get_li_list(url):
     page = requests.get(url)
@@ -123,14 +130,9 @@ def get_city(li):
     targgetville = re.compile(r'<meta content="(.+)" itemprop="address"')
     matches =targgetville.findall(sentence)
     paca = ['Alpes-Maritimes','Var','Hautes-Alpes','Alpes-de-Haute-Provence','Vaucluse','Bouches-du-Rhône']
-    if len(matches) != 0:
-        for match in matches:
-            if match not in paca:
-                ville=match
-            else:
-                ville = 'Erreur'  
-    else:
-        ville = 'Erreur'
+    for match in matches:
+        if match not in paca:
+            ville=match
     return ville
 
 
@@ -209,8 +211,6 @@ def send_log(message):
     with open('log.txt','a') as f:
         f.write('\n' + message)
     return None
-
-
 
 def not_maj_space(t):
     u = t.lower()
