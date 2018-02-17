@@ -1,12 +1,15 @@
 import FNscraping as scrap
 import time
 from datetime import datetime as dt
-
+import pandas as pd
 #================ Configurer le programme pricipal
 CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
 RegionChoice = ['Bouches-du-Rhône']
 url = "https://www.leboncoin.fr/annonces/offres/provence_alpes_cote_d_azur/"
 #==================================================
+
+#traiter le tableau des coordonnees et des codes postaux
+code_latlon = pd.read_excel('code_latlon.xls')
 
 while 1:
     connexionTest = scrap.connection_check()
@@ -63,7 +66,7 @@ while 1:
         
     else:
         scrap.send_log('No connection  ' + str(dt.today()))
+        print('No connection  ' + str(dt.today()))
 
     #attendre quelques secondes ..
     time.sleep(5)
-    
