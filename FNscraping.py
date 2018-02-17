@@ -195,8 +195,6 @@ def send_log(message):
 
 
 
-def not_maj_space(t):
-    u = t.lower()
-    tc = u.replace(" ","")
-    return tc
+def min_not_space(t):
+    return t.lower().replace(" ","")
 
