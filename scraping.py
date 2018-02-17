@@ -264,45 +264,42 @@ if connexionTest == True :
     for i in li_list:
         IsGood = True    
         Id = scrap.get_id(i)
-        if i == 0 ;
+        if i == 0 :
             x1 = Id
         try:
             if Id == x2 :
-                if x2 == x1 ;
-                    break
                 x2=x1
+                break
         except:
             x2 = scrap.get_id(li_list[34])
         #=================================================
         #Filtre + Get_Data
-          #ou alors on cree une variable "aviable to get datta"
+        if  categorie not in CategoryChoice or departement != 'Bouches-du-Rhône':
+            
+            IsGood = False 
+
+        
         #=================================================
         if i == li_list[-1] and scrap.get_id(li_list[-1]) != x2 :
             li_list_two = scrap.get_li_list("https://www.leboncoin.fr/annonces/offres/provence_alpes_cote_d_azur/?o=2")
             for y in li_list_two:
                 IsGood = True    
                 Id = scrap.get_id(y)
-                if i == 0 ;
-                    x1 = scrap.get_id(y)
-                try:
-                    if Id == x2 :
-                        if x2 == x1 ;
-                            break
-                        x2=x1
-                except:
-                    x2 = scrap.get_id(li_list[34])
+                
+                if Id == x2 :
+                    x2=x1
 
                 #=================================================
                 #Filtre + Get_Data
                 #aviable to get datta 
                 #=================================================
                 if y == li_list_two[-1] and scrap.get_id(li_list_two[-1]) != x2 :
-                    x2 = scrap.get_id(li_list[0])
+                    x2 = x1
                     # envoyer un message pour dire "on a perdu le x , chef !!"
                     break
 
-        if AviableToGetDatta == true ;
-            #get this damned datta !!
+        if IsGood == True ;
+            #get this damned data !!
 
 
 #attendre quelques secondes ....
