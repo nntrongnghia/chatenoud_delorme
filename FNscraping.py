@@ -215,3 +215,12 @@ def send_log(message):
 def min_not_space(t):
     return t.lower().replace(" ","")
 
+def filter_iphone(SimpleTilte):
+    try:
+        targgettiphone = re.compile(r'(.+?)(iphone)(.+?)')
+        if targgettiphone == SimpleTilte
+            print("i phone")
+        
+
+    except:
+        print("not i phone")
