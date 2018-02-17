@@ -216,11 +216,16 @@ def min_not_space(t):
     return t.lower().replace(" ","")
 
 def filter_iphone(SimpleTilte):
-    try:
-        targgettiphone = re.compile(r'(.+?)(iphone)(.+?)')
-        if targgettiphone == SimpleTilte
-            print("i phone")
-        
-
-    except:
+    
+    target = re.compile(r'(iphone)').findall(SimpleTilte)
+    
+    if len(target) != 0:
+    
+        print("i phone")
+        return True
+    else :
         print("not i phone")
+        
+        return False
+
+
