@@ -217,17 +217,65 @@ def send_log(message):
 def min_not_space(t):
     return t.lower().replace(" ","")
 
+
+
+#================================================================
+#Filtres pour telephones !!!!
+#-----------------------------
+
 def filter_iphone(SimpleTilte):
     
     target = re.compile(r'(iphone)').findall(SimpleTilte)
     
     if len(target) != 0:
-    
-        print("i phone")
-        return True
-    else :
-        print("not i phone")
         
-        return False
+        target = re.compile(r'(iphone5)').findall(SimpleTilte)
+
+        if len(target) != 0:
+            target = re.compile(r'(iphone5c)').findall(SimpleTilte)
+            if len(target) != 0:
+                phone="Ip5c"
+            target = re.compile(r'(iphone5s)').findall(SimpleTilte)
+            if len(target) != 0:
+                phone="Ip5s"
+            else:
+                phone="Ip5"
+        target = re.compile(r'(iphone6)').findall(SimpleTilte)
+        if len(target) != 0:
+            target = re.compile(r'(iphone6s)').findall(SimpleTilte)
+            if len(target) != 0:
+                target = re.compile(r'(iphone6s(\+|plus))').findall(SimpleTilte)
+                if len(target) != 0:
+                    phone = "Ip6s+"
+                else:
+                    phone = "Ip6s"   
+            target = re.compile(r'(iphone6(\+|plus))').findall(SimpleTilte)
+            if len(target) != 0:
+                phone="Ip6+"
+            else:
+                phone="Ip6"
+        target = re.compile(r'(iphone7)').findall(SimpleTilte)
+        if len(target) != 0:
+            target = re.compile(r'(iphone7(\+|plus))').findall(SimpleTilte)
+            if len(target) != 0:
+                phone="Ip7+"
+            else:
+                phone="Ip7"
+        target = re.compile(r'(iphone8)').findall(SimpleTilte)
+        if len(target) != 0:
+            target = re.compile(r'(iphone8(\+|plus))').findall(SimpleTilte)
+            if len(target) != 0:
+                phone="Ip8+"
+            else:
+                phone="Ip8"
+        target = re.compile(r'(iphonex)').findall(SimpleTilte)
+        if len(target) != 0:
+            phone="Ipx"
+        target = re.compile(r'(iphonese)').findall(SimpleTilte)
+        if len(target) != 0:
+            phone="Ipse"
+    else :
+        phone="not defined"   
+    return phone
 
 
