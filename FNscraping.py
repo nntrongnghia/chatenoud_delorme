@@ -224,11 +224,11 @@ def min_not_space(t):
 #-----------------------------
 
 def filter_iphone(SimpleTilte):
-    
+    phone= "not defined"
     target = re.compile(r'(iphone)').findall(SimpleTilte)
     
     if len(target) != 0:
-        
+        phone= "not defined"
         target = re.compile(r'(iphone5)').findall(SimpleTilte)
 
         if len(target) != 0:
@@ -276,6 +276,9 @@ def filter_iphone(SimpleTilte):
             phone="Ipse"
     else :
         phone="not defined"   
-    return phone
+    print(phone)
+    return
 
+
+     
 
