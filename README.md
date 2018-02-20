@@ -20,21 +20,29 @@ j'ai creer 2 fonctions pour prendre le prix (get_price_li et get_price_desc)
 - Tester la connection avant telecharger html
 - achitecture du programme principal - ensemble
 - tester la fonction principale
-==================================================================
-- dans la nouvelle interface, la desc et le code postal ne sont pas trouves pour certains annonces - Tony
 - Pour le titre et la desc, suprimmer les accents et les changer sous forme minuscule - Hako
     - Pour changer sous forme minuscule: s.lower() avec s est une variable 'string'
 - Ameliorer l'architecture principale pour avoir moins de perte de X (integrer la page 2) - Hako
-- Regular Expression pour classifier des annonces - Hako
 - probleme de distance avec code postal <--> leboncoin - Tony
-
+- Regular Expression pour classifier des annonces - Hako
+- ameliorer le programme pricipal pour ne perdre plus d'annonce - Tony
+==================================================================
 
 
 ## BIBLIOTHEQUES NECESSSAIRES
 import requests
+import re
 from bs4 import BeautifulSoup as soup
 from datetime import datetime
+from math import sqrt
+from math import asin
+from math import sin
+from math import cos
+import sqlite3 as sql
+import time
+from datetime import datetime as dt
 
 ## PROBLEMES
 - leboncoin viens de changer l'interface de page. Il faut tester plus, notamment la fonc get_desc.
-
+- Ne reussir pas de telecharger le html de certaines annonces
+- Le tableau des codes postaux et des coordonnees manque certaines communes -> trouver le code postal le plus proche -> il y a une erreur de distance

@@ -117,22 +117,30 @@ def get_id(li):
 
 def get_department(li):
     sentence = str(li)
-    targgetville = re.compile(r'<meta content="(.+)" itemprop="address"')
+    targgetville = re.compile(r'<meta content=\"(.+)\" itemprop=\"address\"')
     matches =targgetville.findall(sentence)
+    departement = ''
     paca = ['Alpes-Maritimes','Var','Hautes-Alpes','Alpes-de-Haute-Provence','Vaucluse','Bouches-du-Rhône']
-    for match in matches:
-        if match in paca:
-            departement=match  
+    if len(matches) != 0:
+        for match in matches:
+            if match in paca:
+                departement=match
+    else:
+        departement='No found match'
     return departement
 
 def get_city(li):
     sentence = str(li)
-    targgetville = re.compile(r'<meta content="(.+)" itemprop="address"')
+    targgetville = re.compile(r'<meta content=\"(.+)\" itemprop=\"address\"')
     matches =targgetville.findall(sentence)
+    ville = ''
     paca = ['Alpes-Maritimes','Var','Hautes-Alpes','Alpes-de-Haute-Provence','Vaucluse','Bouches-du-Rhône']
-    for match in matches:
-        if match not in paca:
-            ville=match
+    if len(matches) != 0:
+        for match in matches:
+            if match not in paca:
+                ville=match
+    else:
+        ville='No found match'
     return ville
 
 
@@ -157,54 +165,58 @@ def save_data(Id=None,title=None,cat=None,price=None,desc=None,link=None,departm
 #obtenir la description et le code postal
 #renvoyer une dictionaire de 2 mots cles: 'desc' et 'code'
 def get_desc_code(li):
+    time.sleep(0.5)
     link = get_link(li)
     link = 'http:'+link   
-    time.sleep(1)
-    page_annonce = requests.get(link)
     result = {'desc':None, 'code':None}
-    if page_annonce.status_code == requests.codes.ok:
-        page_soup = soup(page_annonce.content,'html.parser')
-        try: 
-            desc_html = page_soup.find_all(class_='line properties_description')[0]
-            desc_split = desc_html.text.split()
-            desc = ''
-            for s in desc_split:
-                desc = desc + ' ' + s
-            #obtenir code postal   
-            code = page_soup.find_all(class_='line line_city')[0].find_all(class_='value')[0].text.split()[-1]
-            #return desc
+    if connection_check():
+        page_annonce = requests.get(link)
+        if page_annonce.status_code == requests.codes.ok:
+            page_soup = soup(page_annonce.content,'html.parser')
+            try: 
+                desc_html = page_soup.find_all(class_='line properties_description')[0]
+                desc_split = desc_html.text.split()
+                desc = ''
+                for s in desc_split:
+                    desc = desc + ' ' + s
+                #obtenir code postal   
+                code = page_soup.find_all(class_='line line_city')[0].find_all(class_='value')[0].text.split()[-1]
+                #return desc
 
-        except:
-            page_html = str(page_soup)
-            r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
-            if len(r.findall(page_html)) == 0:
-                desc = 'Not found'
-                print(desc)
-            else:
-                desc = r.findall(page_html)[0]
-
-            r1 = re.compile(r'(<br/>)')
-            desc = r1.sub(r' ',desc)
-
-            if len(page_soup.find_all(class_='_1aCZv')) != 0:
-                code_text = page_soup.find_all(class_='_1aCZv')[0].text
-                r2 = re.compile(r'\D(\d{5})\D')
-                if len(r2.findall(code_text)) == 0:
-                    code = 'Not found' 
-                    print(code)
+            except:
+                page_html = str(page_soup)
+                r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
+                if len(r.findall(page_html)) == 0:
+                    desc = 'Not found'
+                    print(desc)
                 else:
-                    code = r2.findall(code_text)[0]
-            else:
-                code = 'Not found the html class'
-                print(code)
-    else:
-        send_log('Failed to get html' + ' ' + str(dt.today()))
-        print('Failed to get html')
-        desc = 'Failed to get html'
-        code = 'Failed to get html'
+                    desc = r.findall(page_html)[0]
 
-    result['desc'] = desc
-    result['code'] = code
+                r1 = re.compile(r'(<br/>)')
+                desc = r1.sub(r' ',desc)
+
+                if len(page_soup.find_all(class_='_1aCZv')) != 0:
+                    code_text = page_soup.find_all(class_='_1aCZv')[0].text
+                    r2 = re.compile(r'\D(\d{5})\D')
+                    if len(r2.findall(code_text)) == 0:
+                        code = 'Not found' 
+                        print(code)
+                    else:
+                        code = r2.findall(code_text)[0]
+                else:
+                    code = 'Not found the html class'
+                    print(code)
+        else:
+            send_log('Failed to get html' + ' ' + str(dt.today()))
+            print('Failed to get html')
+            desc = 'Failed to get html'
+            code = 'Failed to get html'
+
+        result['desc'] = desc
+        result['code'] = code
+    else:
+        result['desc'] = 'No connection'
+        result['code'] = 'No connection'
     return result
 
 def send_log(message):
@@ -218,16 +230,41 @@ def min_not_space(t):
     return t.lower().replace(" ","")
 
 def filter_iphone(SimpleTilte):
-    
     target = re.compile(r'(iphone)').findall(SimpleTilte)
-    
     if len(target) != 0:
-    
-        print("i phone")
+        #print("i phone")
         return True
     else :
-        print("not i phone")
-        
+        #print("not i phone")
         return False
 
+def global_filter(i): #i est une annonce dans li_list
+    HaveDesc = False
+    Id = get_id(i)
+    categorie = get_cat(i)
+    departement = get_department(i)
+    #POUR TESTER, J'AI ENLEVE DES FILTRES
+    #if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
+    if True:
+        try:
+            price = get_price_li(i)           
+        except :
+            desc_code = get_desc_code(i)
+            desc = desc_code['desc']
+            price = get_price_desc(desc)
+            HaveDesc = True
 
+        if (price > 49) and (price < 1400) :
+            if HaveDesc == False :
+                desc_code = get_desc_code(i)
+                desc = desc_code['desc']
+                    
+            date = get_date(i)
+            titre = get_title(i)
+            ville = get_city(i)
+            link = get_link(i)
+            # il faut rajouter le code postal !!!
+            code_postal = desc_code['code']
+            # rentrer les bonnes annonces dans un tableau ici !!!
+            save_data(Id, titre, categorie, price, desc, link, departement, ville, code_postal, date)
+    return None

@@ -274,11 +274,6 @@ if connexionTest == True :
             x2 = scrap.get_id(li_list[34])
         #=================================================
         #Filtre + Get_Data
-        if  categorie not in CategoryChoice or departement != 'Bouches-du-Rhône':
-            
-            IsGood = False 
-
-        
         #=================================================
         if i == li_list[-1] and scrap.get_id(li_list[-1]) != x2 :
             li_list_two = scrap.get_li_list("https://www.leboncoin.fr/annonces/offres/provence_alpes_cote_d_azur/?o=2")
@@ -298,8 +293,6 @@ if connexionTest == True :
                     # envoyer un message pour dire "on a perdu le x , chef !!"
                     break
 
-        if IsGood == True ;
-            #get this damned data !!
 
 
 #attendre quelques secondes ....

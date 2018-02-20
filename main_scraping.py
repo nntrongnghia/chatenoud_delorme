@@ -59,7 +59,7 @@ while 1:
             if i == li_list[-1] and scrap.get_id(li_list[-1]) != x:
                 x = scrap.get_id(li_list[0])
                 # envoyer un message pour dire "on a perdu le x , chef !!"
-                scrap.send_log('on a perdu le x , chef !!' + '  ' + str(date) + ' ' + str(dt.today()))
+                scrap.send_log('on a perdu le x , chef !!' + ' ' + str(dt.today()))
                 break
         #POUR TESTER
         print('I have just finished 1 loop!' + ' ' + str(dt.today()))
