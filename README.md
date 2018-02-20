@@ -38,3 +38,36 @@ from datetime import datetime
 ## PROBLEMES
 - leboncoin viens de changer l'interface de page. Il faut tester plus, notamment la fonc get_desc.
 
+
+
+
+
+## PRIX a chercher 
+ 
+iphone 5........:
+iphone 5s.......:60
+iphone 5c.......:60
+iphone 6........:176
+iphone 6+.......:
+iphone 6s.......:
+iphone 6s+......:
+iphone 7........:
+iphone 7+.......:
+iphone 8........:
+iphone 8+.......:
+iphone X........:651
+iphone SE.......:
+Galaxy S6.......:151
+Galaxy S6 Edge..:251
+Galaxy S6 Edge +:251
+Galaxy S7.......:251
+Galaxy S7 Edge..:301
+Galaxy S8.......:401
+Galaxy S8+......:451
+Galaxy S9.......:
+Galaxy S9+......:
+Nintedo Switch..:201
+PlayStation4....:151
+XboxOne.........:151
+MBK Booster.....:551
+Kymco Agility...:401
