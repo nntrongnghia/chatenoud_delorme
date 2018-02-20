@@ -247,79 +247,77 @@ def filter_phone(SimpleTilte):
 # I phone X
 #-------------------------------------------------------------------------------
 
-                    if i.group(2) == "x":
+                if i.group(2) == "x":
                         #c est un iphone x !!!
-                        phone="iphone x"
+                    phone="iphone x"
 #-------------------------------------------------------------------------------
 # I phone SE
 #-------------------------------------------------------------------------------
 
-                    if i.group(2) == "se":
+                if i.group(2) == "se":
                         #c est un iphone se !!!
-                        phone="iphone se"
+                    phone="iphone se"
 
 #-------------------------------------------------------------------------------
 # I phone 5
 #-------------------------------------------------------------------------------
 
-                    if i.group(2) == "5":
-                        if len(SimpleTilte) > 2  and (i.group(3) != "+"or i.group(3) != "+") :
+                if i.group(2) == "5":
+                    phone="iphone 5"
+                    if len(SimpleTilte) > 2  and (i.group(3) != "+"or i.group(3) != "+") :
 
-                            if i.group(3) == "s":
+                        if i.group(3) == "s":
                                 #c est un iphone 5s !!
-                                phone="iphone 5s"
+                            phone="iphone 5s"
 
-                            if i.group(3) == "c":
+                        if i.group(3) == "c":
                                 #c est un iphone 5c !!
-                                phone="iphone 5c"
+                            phone="iphone 5c"
                             
-                        else:
-                            #c est un iphone 5 !!!
-                            phone="iphone 5"
 
 #-------------------------------------------------------------------------------
 # I phone 6
 #-------------------------------------------------------------------------------
-                    if i.group(2) == "6":
-                        if len(SimpleTilte) > 2 :
+                if i.group(2) == "6":
+                    phone="iphone 6"
+                    if len(SimpleTilte) > 2  and ( i.group(3) == "+" or i.group(3) == "plus" or i.group(3) == "s" ):
 
-                            if i.group(3) == "+" or i.group(3) == "plus" :
                                 #c est un i phone 6+ !!!
-                                phone="iphone 6+"
+                        phone="iphone 6+"
 
-                            if i.group(3) == "s":
-                                if len(SimpleTilte) > 3 :
+                        if i.group(3) == "s":
+                            if len(SimpleTilte) > 3 and ( i.group(4) == "+" or i.group(4) == "plus"):
                                     #c est un i phone 6s+
-                                    phone="iphone 6s+"
+                                phone="iphone 6s+"
 
                             else:
                                 #c est un i phone 6s !!!
                                 phone="iphone 6s"
 
-                        else:
-                            # c est un i phone 6 !!!
-                            phone="iphone 6"
+
                     
 #-------------------------------------------------------------------------------
 # I phone 7
 #-------------------------------------------------------------------------------
-                    if i.group(2) == "7":
-                        if len(SimpleTilte) > 2 :
-                            # c est un iphone 7+ !!!
+                if i.group(2) == "7":
+                        if len(SimpleTilte) > 2 and (i.group(3) == "plus" or i.group(3) == "+") :
+
                             phone="iphone 7+"
+
                         else:
-                            # c est un i phone 7 !!!
+                            #c est un Galaxy s6 !!!
                             phone="iphone 7"
 
 #-------------------------------------------------------------------------------
 # I phone 8
 #-------------------------------------------------------------------------------
-                    if i.group(2) == "8":
-                        if len(SimpleTilte) > 2 :
-                            # c est un iphone 8+ !!!
+                if i.group(2) == "8":
+                        if len(SimpleTilte) > 2 and (i.group(3) == "plus" or i.group(3) == "+") :
+
                             phone="iphone 8+"
+
                         else:
-                            # c est un i phone 8 !!!
+                            #c est un Galaxy s6 !!!
                             phone="iphone 8"
 
 #===============================================================================
@@ -339,7 +337,7 @@ def filter_phone(SimpleTilte):
 
                         if len(SimpleTilte) > 3 and( i.group(4) == "+" or i.group(4) == "plus"  ) :
                             #c est un Galaxy s6 edge + !!!
-                            phone="g S6 Edge + "
+                            phone="g S6 Edge +"
 
                         else :
                             #c est un Galaxy s6 edge !!!
@@ -355,7 +353,7 @@ def filter_phone(SimpleTilte):
                 if i.group(2) == "7":
                         if len(SimpleTilte) > 2 and i.group(3) == "edge" :
 
-                                phone="g S7 Edge"
+                            phone="g S7 Edge"
 
                         else:
                             #c est un Galaxy s6 !!!
@@ -364,7 +362,7 @@ def filter_phone(SimpleTilte):
                 if i.group(2) == "8":
                         if len(SimpleTilte) > 2 and (i.group(3) == "plus" or i.group(3) == "+" ) :
 
-                                phone="g S8 +"
+                            phone="g S8 +"
 
                         else:
                             #c est un Galaxy s6 !!!
@@ -374,7 +372,7 @@ def filter_phone(SimpleTilte):
                 if i.group(2) == "9":
                         if len(SimpleTilte) > 2 and (i.group(3) == "plus" or i.group(3) == "+" ) :
 
-                                phone="g S9 +"
+                            phone="g S9 +"
 
                         else:
                             #c est un Galaxy s6 !!!
