@@ -380,3 +380,90 @@ def filter_phone(SimpleTilte):
 
 
     return phone
+
+
+#================================================================
+#Filtres pour consoles !!!!
+#-----------------------------
+
+def filter_games(SimpleTilte):
+    SimpleTilte =  min_not_space(SimpleTilte)
+
+    game= "not defined"
+
+    SimpleTilte = min_not_space(SimpleTilte)
+
+    target = re.compile(r'(switch|playstation4|ps4|xboxone)((.*)?(jeu))?')
+    
+    matches = target.finditer(SimpleTilte)
+
+    for i in matches:
+
+        if len(SimpleTilte) > 1 :
+            if i.group(1) == "switch":
+                
+                if len(SimpleTilte) > 3 and  i.group(4) == "jeu":
+                    # c est une swich avec jeu!!
+                    game = "switch+jeu"
+                else:
+                    #c est une switch
+                    game = "switch"
+
+            if i.group(1) == "xboxone":
+                
+                if len(SimpleTilte) > 3 and  i.group(4) == "jeu":
+                    # c est une xbox1 avec jeu!!
+                    game = "xbox1+jeu"
+                
+                else:
+                    #c est une xbox1
+                    game = "xbox1"
+
+
+
+            if i.group(1) == "ps4" or i.group(1) == "playstation4" :
+                
+                if len(SimpleTilte) > 3 and  i.group(4) == "jeu":
+                    # c est une ps4 avec jeu!!
+                    game = "ps4+jeu"
+                
+                else:
+                    #c est une ps4
+                    game = "ps4"
+
+    return game
+
+
+
+
+
+#================================================================
+#Filtres pour Scooter !!!!
+#-----------------------------
+
+def filter_scoot(SimpleTilte):
+    SimpleTilte =  min_not_space(SimpleTilte)
+
+    scoot= "not defined"
+
+    SimpleTilte = min_not_space(SimpleTilte)
+
+    target = re.compile(r'(agility|booster|spirit)')
+    
+    matches = target.finditer(SimpleTilte)
+
+    for i in matches:
+
+        if len(SimpleTilte) > 1 :
+            if i.group(1) == "booster" or i.group(1) == "spirit" :
+                # c est un booster
+                scoot = "booster"
+            if i.group(1) == "agility" :
+                #c est un agility
+                scoot = "agility"
+                
+                
+    return scoot
+
+
+            
