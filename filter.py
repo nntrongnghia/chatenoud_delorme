@@ -255,32 +255,4 @@ def filter_scoot(SimpleTilte):
                 scoot = "agility"          
     return scoot
 
-def global_filter(i): #i est une annonce dans li_list
-    HaveDesc = False
-    Id = get_id(i)
-    categorie = get_cat(i)
-    departement = get_department(i)
-    #POUR TESTER, J'AI ENLEVE DES FILTRES
-    #if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
-    if True:
-        try:
-            price = get_price_li(i)           
-        except :
-            desc_code = get_desc_code(i)
-            desc = desc_code['desc']
-            price = get_price_desc(desc)
-            HaveDesc = True
-        if (price > 49) and (price < 1400) :
-            if HaveDesc == False :
-                desc_code = get_desc_code(i)
-                desc = desc_code['desc']          
-            date = get_date(i)
-            titre = get_title(i)
-            ville = get_city(i)
-            link = get_link(i)
-            # il faut rajouter le code postal !!!
-            code_postal = desc_code['code']
-            # rentrer les bonnes annonces dans un tableau ici !!!
-            save_data(Id, titre, categorie, price, desc, link, departement, ville, code_postal, date)
-    return None
 
