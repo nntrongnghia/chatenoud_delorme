@@ -224,18 +224,14 @@ def send_log(message):
         f.write('\n' + message)
     return None
 
-
-
-
-
 def global_filter(i): #i est une annonce dans li_list
     HaveDesc = False
     Id = get_id(i)
     categorie = get_cat(i)
     departement = get_department(i)
     #POUR TESTER, J'AI ENLEVE DES FILTRES
-    #if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
-    if True:
+    if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
+    #if True:
         try:
             price = get_price_li(i)           
         except :
