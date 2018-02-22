@@ -223,17 +223,19 @@ def send_log(message):
     with open('log.txt','a') as f:
         f.write('\n' + message)
     return None
-   
+
+
+
+
+
 def global_filter(i): #i est une annonce dans li_list
-    CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
-    RegionChoice = ['Bouches-du-Rhône']
     HaveDesc = False
     Id = get_id(i)
     categorie = get_cat(i)
     departement = get_department(i)
     #POUR TESTER, J'AI ENLEVE DES FILTRES
-    if  (categorie in CategoryChoice) and (departement in RegionChoice):
-    #if True:
+    #if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
+    if True:
         try:
             price = get_price_li(i)           
         except :
@@ -254,3 +256,5 @@ def global_filter(i): #i est une annonce dans li_list
             # rentrer les bonnes annonces dans un tableau ici !!!
             save_data(Id, titre, categorie, price, desc, link, departement, ville, code_postal, date)
     return None
+
+
