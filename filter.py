@@ -130,15 +130,15 @@ def filter_phone(SimpleTilte):
 
                         if len(SimpleTilte) > 3 and( i.group(4) == "+" or i.group(4) == "plus"  ) :
                             #c est un Galaxy s6 edge + !!!
-                            phone="g S6 Edge +"
+                            phone="gS6Edge+"
 
                         else :
                             #c est un Galaxy s6 edge !!!
-                            phone="g S6 Edge"
+                            phone="gS6Edge"
 
                     else:
                         #c est un Galaxy s6 !!!
-                        phone="g S6"
+                        phone="gS6"
 
 #-------------------------------------------------------------------------------
 # Galaxy S 7
@@ -146,30 +146,30 @@ def filter_phone(SimpleTilte):
                 if i.group(2) == "7":
                         if len(SimpleTilte) > 2 and i.group(3) == "edge" :
 
-                            phone="g S7 Edge"
+                            phone="gS7Edge"
 
                         else:
                             #c est un Galaxy s6 !!!
-                            phone="g S7"
+                            phone="gS7"
 
                 if i.group(2) == "8":
                         if len(SimpleTilte) > 2 and (i.group(3) == "plus" or i.group(3) == "+" ) :
 
-                            phone="g S8 +"
+                            phone="gS8+"
 
                         else:
                             #c est un Galaxy s6 !!!
-                            phone="g S8"
+                            phone="gS8"
 
 
                 if i.group(2) == "9":
                         if len(SimpleTilte) > 2 and (i.group(3) == "plus" or i.group(3) == "+" ) :
 
-                            phone="g S9 +"
+                            phone="gS9+"
 
                         else:
                             #c est un Galaxy s6 !!!
-                            phone="g S9"
+                            phone="gS9"
 
 
     return phone
@@ -255,35 +255,91 @@ def filter_scoot(SimpleTilte):
                 scoot = "agility"          
     return scoot
 
+def global_filter(i): #i est une annonce dans li_list
+    HaveDesc = False
+    Id = get_id(i)
+    categorie = get_cat(i)
+    departement = get_department(i)
+    #POUR TESTER, J'AI ENLEVE DES FILTRES
+    #if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
+    if True:
+        try:
+            price = get_price_li(i)           
+        except :
+            desc_code = get_desc_code(i)
+            desc = desc_code['desc']
+            price = get_price_desc(desc)
+            HaveDesc = True
+        if (price > 49) and (price < 1400) :
+            if HaveDesc == False :
+                desc_code = get_desc_code(i)
+                desc = desc_code['desc']          
+            date = get_date(i)
+            titre = get_title(i)
+            ville = get_city(i)
+            link = get_link(i)
+            # il faut rajouter le code postal !!!
+            code_postal = desc_code['code']
+            # rentrer les bonnes annonces dans un tableau ici !!!
+            save_data(Id, titre, categorie, price, desc, link, departement, ville, code_postal, date)
+    return None
 
 def decision(product,priceproduct):
     if product == "agility" and priceproduct < 401 :
+        permission=True
     if product == "booster" and priceproduct < 551 :
+        permission=True
     if product == "xbox1" and priceproduct < 151 :
+        permission=True
     if product == "ps4" and priceproduct < 151 :
+        permission=True
     if product == "switch" and priceproduct < 201 :
+        permission=True
     if product == "switch+jeu" and priceproduct < 211 :
+        permission=True
     if product == "ps4+jeu" and priceproduct < 161 :
-    if product == "switch" and priceproduct < 161 : 
-    iphone 5:
-    iphone 5s:60
-    iphone 5c 60
-    iphone 6:176
-    iphone 6+:
-    iphone 6s:
-    iphone 6s+:
-    iphone 7........:
-    iphone 7+.......:
-    iphone 8........:
-    iphone 8+.......:
-    iphone X........:751
-    iphone SE.......:
-    Galaxy S6.......:151
-    Galaxy S6 Edge..:251
-    Galaxy S6 Edge +:251
-    Galaxy S7.......:251
-    Galaxy S7 Edge..:301
-    Galaxy S8.......:401
-    Galaxy S8+......:451
-    Galaxy S9.......:
-    Galaxy S9+......:
+        permission=True
+    if product == "xbox1+jeu" and priceproduct < 161 :
+        permission=True
+    if product == "gS9" and priceproduct < 651: 
+        permission=True
+    if product == "gS8+" and priceproduct < 451 :
+        permission=True
+    if product == "gS8" and priceproduct < 401 :
+        permission=True
+    if product == "gS7Edge" and priceproduct <301 :
+        permission=True
+    if product == "gS7" and priceproduct <251 :
+        permission=True
+    if product == "gS6Edge+" and priceproduct <251 :
+        permission=True
+    if product == "gS6Edge" and priceproduct < 231:
+        permission=True
+    if product == "gS6" and priceproduct < 151:
+        permission=True
+    if product == "iphone x" and priceproduct < 751 and priceproduct > 499 :
+        permission=True
+    if product == "iphone 5c" and priceproduct < 61:
+        permission=True
+    if product == "iphone 5s" and priceproduct < 61:
+        permission=True
+    if product == "iphone 6" and priceproduct < 151:
+        permission=True
+    if product == "iphone 6+" and priceproduct < 201:
+        permission=True
+    if product == "iphone 6s" and priceproduct < 251:
+        permission=True
+    if product == "iphone 6s+" and priceproduct < 301:
+        permission=True
+    if product == "iphone 7" and priceproduct < 421:
+        permission=True
+    if product == "iphone 7+" and priceproduct < 501:
+        permission=True
+    if product == "iphone 8" and priceproduct < 551:
+        permission=True
+    if product == "iphone 8+" and priceproduct < 551:
+        permission=True    
+    else:
+        permission=False
+    
+    return permission
