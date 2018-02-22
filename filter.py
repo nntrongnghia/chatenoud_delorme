@@ -256,3 +256,34 @@ def filter_scoot(SimpleTilte):
     return scoot
 
 
+def decision(product,priceproduct):
+    if product == "agility" and priceproduct < 401 :
+    if product == "booster" and priceproduct < 551 :
+    if product == "xbox1" and priceproduct < 151 :
+    if product == "ps4" and priceproduct < 151 :
+    if product == "switch" and priceproduct < 201 :
+    if product == "switch+jeu" and priceproduct < 211 :
+    if product == "ps4+jeu" and priceproduct < 161 :
+    if product == "switch" and priceproduct < 161 : 
+    iphone 5:
+    iphone 5s:60
+    iphone 5c 60
+    iphone 6:176
+    iphone 6+:
+    iphone 6s:
+    iphone 6s+:
+    iphone 7........:
+    iphone 7+.......:
+    iphone 8........:
+    iphone 8+.......:
+    iphone X........:751
+    iphone SE.......:
+    Galaxy S6.......:151
+    Galaxy S6 Edge..:251
+    Galaxy S6 Edge +:251
+    Galaxy S7.......:251
+    Galaxy S7 Edge..:301
+    Galaxy S8.......:401
+    Galaxy S8+......:451
+    Galaxy S9.......:
+    Galaxy S9+......:
