@@ -1,5 +1,9 @@
+import re
+
+
 def min_not_space(t):
     t = t.replace(" ","").replace("-","").replace("_","")
+    t = t.replace("â","a").replace("á","a").replace("à","a")
     return t.lower().replace("è","e").replace("é","e").replace("ê","e")
 
 def filter_iphone(SimpleTilte):
@@ -12,6 +16,26 @@ def filter_iphone(SimpleTilte):
         return False
 
 
+def hs_finder(SimpleTilte):
+
+    SimpleTilte =  min_not_space(SimpleTilte)
+
+    out=False 
+
+    target = re.compile(r'(hs|horsservic|pourpiece|areparer|pourreparateur|casse|allumeplus|demareplus)')
+    
+    matches = target.finditer(SimpleTilte)
+
+    for i in matches:
+
+        if len(SimpleTilte) != 0 :
+            out =True
+        else:
+            out =False
+
+
+    return out
+
 
 #================================================================
 #Filtres pour telephones !!!!
@@ -20,9 +44,12 @@ def filter_iphone(SimpleTilte):
 def filter_phone(SimpleTilte):
     SimpleTilte =  min_not_space(SimpleTilte)
 
-    phone= "not defined"
+    out = hs_finder(SimpleTilte)
+    if out == True :
+        phone = "broken"
+        return phone
 
-    SimpleTilte = min_not_space(SimpleTilte)
+    phone= "not defined"
 
     target = re.compile(r'(galaxys|iphone)([5-9]|x|se)(s|c|edge|\+|plus)?(\+|plus)?')
     
@@ -285,9 +312,9 @@ def global_filter(i): #i est une annonce dans li_list
     return None
 
 def decision(product,priceproduct):
-    if product == "agility" and priceproduct < 401 :
+    if product == "agility" and priceproduct < 401 and priceproduct > 99 :
         permission=True
-    if product == "booster" and priceproduct < 551 :
+    if product == "booster" and priceproduct < 551 and priceproduct > 99 :
         permission=True
     if product == "xbox1" and priceproduct < 151 :
         permission=True
@@ -301,21 +328,21 @@ def decision(product,priceproduct):
         permission=True
     if product == "xbox1+jeu" and priceproduct < 161 :
         permission=True
-    if product == "gS9" and priceproduct < 651: 
+    if product == "gS9" and priceproduct < 651 and priceproduct > 99: 
         permission=True
-    if product == "gS8+" and priceproduct < 451 :
+    if product == "gS8+" and priceproduct < 451  and priceproduct > 99:
         permission=True
-    if product == "gS8" and priceproduct < 401 :
+    if product == "gS8" and priceproduct < 401  and priceproduct > 99:
         permission=True
-    if product == "gS7Edge" and priceproduct <301 :
+    if product == "gS7Edge" and priceproduct <301 and priceproduct > 99 :
         permission=True
-    if product == "gS7" and priceproduct <251 :
+    if product == "gS7" and priceproduct <251 and priceproduct > 99 :
         permission=True
-    if product == "gS6Edge+" and priceproduct <251 :
+    if product == "gS6Edge+" and priceproduct <251 and priceproduct > 99 :
         permission=True
-    if product == "gS6Edge" and priceproduct < 231:
+    if product == "gS6Edge" and priceproduct < 231 and priceproduct > 99:
         permission=True
-    if product == "gS6" and priceproduct < 151:
+    if product == "gS6" and priceproduct < 151 and priceproduct > 99:
         permission=True
     if product == "iphone x" and priceproduct < 751 and priceproduct > 499 :
         permission=True
@@ -323,21 +350,21 @@ def decision(product,priceproduct):
         permission=True
     if product == "iphone 5s" and priceproduct < 61:
         permission=True
-    if product == "iphone 6" and priceproduct < 151:
+    if product == "iphone 6" and priceproduct < 151 and priceproduct > 99:
         permission=True
-    if product == "iphone 6+" and priceproduct < 201:
+    if product == "iphone 6+" and priceproduct < 201 and priceproduct > 99:
         permission=True
-    if product == "iphone 6s" and priceproduct < 251:
+    if product == "iphone 6s" and priceproduct < 251 and priceproduct > 99:
         permission=True
-    if product == "iphone 6s+" and priceproduct < 301:
+    if product == "iphone 6s+" and priceproduct < 301 and priceproduct > 99:
         permission=True
-    if product == "iphone 7" and priceproduct < 421:
+    if product == "iphone 7" and priceproduct < 421 and priceproduct > 99:
         permission=True
-    if product == "iphone 7+" and priceproduct < 501:
+    if product == "iphone 7+" and priceproduct < 501 and priceproduct > 99:
         permission=True
-    if product == "iphone 8" and priceproduct < 551:
+    if product == "iphone 8" and priceproduct < 551 and priceproduct > 99:
         permission=True
-    if product == "iphone 8+" and priceproduct < 551:
+    if product == "iphone 8+" and priceproduct < 551 and priceproduct > 99:
         permission=True    
     else:
         permission=False
