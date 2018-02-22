@@ -16,22 +16,32 @@ def filter_iphone(SimpleTilte):
         return False
 
 
-def hs_finder(SimpleTilte):
+def hs_finder(SimpleTilte,Description):
 
     SimpleTilte =  min_not_space(SimpleTilte)
-
+    SimpleDesc = min_not_space(Description)
     out=False 
 
     target = re.compile(r'(hs|horsservic|pourpiece|areparer|pourreparateur|casse|allumeplus|demareplus)')
     
-    matches = target.finditer(SimpleTilte)
+    matches1 = target.finditer(SimpleTilte)
+    matches2 = target.finditer(SimpleDesc)
 
-    for i in matches:
+    for i in matches1:
 
         if len(SimpleTilte) != 0 :
             out =True
         else:
             out =False
+
+    if out == False:
+        for i in matches2:
+
+            if len(SimpleDesc) != 0 :
+                out =True
+            else:
+                out =False
+
 
 
     return out
@@ -209,9 +219,12 @@ def filter_phone(SimpleTilte):
 def filter_games(SimpleTilte):
     SimpleTilte =  min_not_space(SimpleTilte)
 
-    game= "not defined"
+    out = hs_finder(SimpleTilte)
+    if out == True :
+        game = "broken"
+        return game
 
-    SimpleTilte = min_not_space(SimpleTilte)
+    game= "not defined"
 
     target = re.compile(r'(switch|playstation4|ps4|xboxone)((.*)?(jeu))?')
     
@@ -263,9 +276,12 @@ def filter_games(SimpleTilte):
 def filter_scoot(SimpleTilte):
     SimpleTilte =  min_not_space(SimpleTilte)
 
-    scoot= "not defined"
+    out = hs_finder(SimpleTilte)
+    if out == True :
+        scoot = "broken"
+        return scoot
 
-    SimpleTilte = min_not_space(SimpleTilte)
+    scoot= "not defined"
 
     target = re.compile(r'(agility|booster|spirit)')
     
