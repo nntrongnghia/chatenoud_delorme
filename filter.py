@@ -216,13 +216,21 @@ def filter_phone(SimpleTilte,Desc):
 #Filtres pour consoles !!!!
 #-----------------------------
 
-def filter_games(SimpleTilte):
+def filter_games(SimpleTilte,Desc):
+    
     SimpleTilte =  min_not_space(SimpleTilte)
 
-    out = hs_finder(SimpleTilte)
+    SimpleTilte =  min_not_space(SimpleTilte)
+
+    Desc =  min_not_space(Desc)
+
+    out = hs_finder(SimpleTilte,Desc)
+
     if out == True :
-        game = "broken"
-        return game
+
+        phone = "broken"
+
+        return phone
 
     game= "not defined"
 
@@ -273,13 +281,21 @@ def filter_games(SimpleTilte):
 #Filtres pour Scooter !!!!
 #-----------------------------
 
-def filter_scoot(SimpleTilte):
+def filter_scoot(SimpleTilte,Desc):
+
     SimpleTilte =  min_not_space(SimpleTilte)
 
-    out = hs_finder(SimpleTilte)
+    SimpleTilte =  min_not_space(SimpleTilte)
+
+    Desc =  min_not_space(Desc)
+
+    out = hs_finder(SimpleTilte,Desc)
+
     if out == True :
-        scoot = "broken"
-        return scoot
+
+        phone = "broken"
+
+        return phone
 
     scoot= "not defined"
 
@@ -389,8 +405,19 @@ def decision(product,priceproduct):
 
 
 
-def is_good(titre,desc,cat):
+def is_good(titre,desc,cat,price):
     
+    obj = "not defined"
 
+    if cat =="Motos":
+        obj = filter_scoot(titre,desc)
+   
+    if cat =="Téléphonie":
+        obj = filter_phone(titre,desc)
 
-    if desc =="téléphonie"
+    if cat == "Consoles &amp; Jeux vidéo":
+        obj = filter_games(titre,desc)
+
+    IsGood = decision(obj,price)
+
+    return IsGood
