@@ -230,11 +230,24 @@ def global_filter(i): #i est une annonce dans li_list
     Id = get_id(i)
     categorie = get_cat(i)
     departement = get_department(i)
+    result = {
+                'good':False,
+                'desc':'NUL',
+                'cat':'NUL',
+                'titre':'NUL',
+                'categorie':'NUL',
+                'price':1000,
+                'link':'NUL',
+                'ville':'NUL'
+            }
+    good = False
+    CategoryChoice = ['Consoles &amp; Jeux vidéo' , 'Informatique' , 'Motos' , 'Téléphonie']
     #POUR TESTER, J'AI ENLEVE DES FILTRES
     if  categorie in CategoryChoice and departement == 'Bouches-du-Rhône':
     #if True:
         try:
             price = get_price_li(i)           
+
         except :
             desc_code = get_desc_code(i)
             desc = desc_code['desc']
@@ -252,6 +265,19 @@ def global_filter(i): #i est une annonce dans li_list
             code_postal = desc_code['code']
             # rentrer les bonnes annonces dans un tableau ici !!!
             save_data(Id, titre, categorie, price, desc, link, departement, ville, code_postal, date)
-    return None
+            good = True
+            result = {
+                'good':good,
+                'desc':desc,
+                'cat':categorie,
+                'titre':titre,
+                'categorie':categorie,
+                'price':price,
+                'link':link,
+                'ville':ville
+            }
+            
+
+    return result
 
 
