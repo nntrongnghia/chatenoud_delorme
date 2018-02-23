@@ -51,10 +51,10 @@ def hs_finder(SimpleTilte,Description):
 #Filtres pour telephones !!!!
 #-----------------------------
 
-def filter_phone(SimpleTilte):
+def filter_phone(SimpleTilte,Desc):
     SimpleTilte =  min_not_space(SimpleTilte)
-
-    out = hs_finder(SimpleTilte)
+    Desc =  min_not_space(Desc)
+    out = hs_finder(SimpleTilte,Desc)
     if out == True :
         phone = "broken"
         return phone
@@ -328,6 +328,8 @@ def global_filter(i): #i est une annonce dans li_list
     return None
 
 def decision(product,priceproduct):
+    permission=False
+
     if product == "agility" and priceproduct < 401 and priceproduct > 99 :
         permission=True
     if product == "booster" and priceproduct < 551 and priceproduct > 99 :
@@ -382,7 +384,13 @@ def decision(product,priceproduct):
         permission=True
     if product == "iphone 8+" and priceproduct < 551 and priceproduct > 99:
         permission=True    
-    else:
-        permission=False
-    
+
     return permission
+
+
+
+def is_good(titre,desc,cat):
+    
+
+
+    if desc =="téléphonie"

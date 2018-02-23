@@ -99,6 +99,7 @@ def get_date(li):
     return dt
 
 def get_cat(li):
+    categorie = "none"
     target_categorie = re.compile(r'(<p class="item_supp" content=")(.+?)(" itemprop="category">)')
     sentence = str(li)
     matches =target_categorie.finditer(sentence)
