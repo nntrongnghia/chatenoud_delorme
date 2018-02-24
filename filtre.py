@@ -368,9 +368,9 @@ def decision(product,priceproduct):
         permission=True
     if product == "gS8" and priceproduct < 401  and priceproduct > 99:
         permission=True
-    if product == "gS7Edge" and priceproduct <301 and priceproduct > 99 :
+    if product == "gS7Edge" and priceproduct <281 and priceproduct > 99 :
         permission=True
-    if product == "gS7" and priceproduct <251 and priceproduct > 99 :
+    if product == "gS7" and priceproduct <201 and priceproduct > 99 :
         permission=True
     if product == "gS6Edge+" and priceproduct <251 and priceproduct > 99 :
         permission=True
@@ -388,7 +388,7 @@ def decision(product,priceproduct):
         permission=True
     if product == "iphone 6+" and priceproduct < 201 and priceproduct > 99:
         permission=True
-    if product == "iphone 6s" and priceproduct < 251 and priceproduct > 99:
+    if product == "iphone 6s" and priceproduct < 236 and priceproduct > 99:
         permission=True
     if product == "iphone 6s+" and priceproduct < 301 and priceproduct > 99:
         permission=True

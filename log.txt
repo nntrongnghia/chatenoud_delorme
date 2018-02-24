@@ -371,3 +371,9 @@ No connection  2018-02-24 07:38:36.399430
 No connection  2018-02-24 07:38:46.637015
 No connection  2018-02-24 07:38:56.651588
 No connection  2018-02-24 07:39:09.802340
+Failed to get html 2018-02-24 10:36:46.742882
+Failed to get html 2018-02-24 10:52:01.146183
+Failed to get html 2018-02-24 11:02:42.873888
+Failed to get html 2018-02-24 11:02:43.769939
+Failed to get html 2018-02-24 11:02:47.489152
+Failed to get html 2018-02-24 11:02:51.222366
