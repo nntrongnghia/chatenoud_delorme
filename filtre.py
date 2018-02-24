@@ -386,13 +386,13 @@ def decision(product,priceproduct):
         permission=True
     if product == "iphone 6" and priceproduct < 151 and priceproduct > 99:
         permission=True
-    if product == "iphone 6+" and priceproduct < 201 and priceproduct > 99:
+    if product == "iphone 6+" and priceproduct < 211 and priceproduct > 99:
         permission=True
     if product == "iphone 6s" and priceproduct < 236 and priceproduct > 99:
         permission=True
     if product == "iphone 6s+" and priceproduct < 301 and priceproduct > 99:
         permission=True
-    if product == "iphone 7" and priceproduct < 371 and priceproduct > 99:
+    if product == "iphone 7" and priceproduct < 331 and priceproduct > 99:
         permission=True
     if product == "iphone 7+" and priceproduct < 401 and priceproduct > 99:
         permission=True
