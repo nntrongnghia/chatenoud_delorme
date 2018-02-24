@@ -377,3 +377,6 @@ Failed to get html 2018-02-24 11:02:42.873888
 Failed to get html 2018-02-24 11:02:43.769939
 Failed to get html 2018-02-24 11:02:47.489152
 Failed to get html 2018-02-24 11:02:51.222366
+No connection  2018-02-24 23:21:49.419772
+No connection  2018-02-24 23:22:13.686160
+No connection  2018-02-24 23:22:48.553154

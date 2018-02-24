@@ -346,21 +346,21 @@ def global_filter(i): #i est une annonce dans li_list
 def decision(product,priceproduct):
     permission=False
 
-    if product == "agility" and priceproduct < 401 and priceproduct > 99 :
+    if product == "agility" and priceproduct < 451 and priceproduct > 99 :
         permission=True
     if product == "booster" and priceproduct < 551 and priceproduct > 99 :
         permission=True
-    if product == "xbox1" and priceproduct < 151 :
+    if product == "xbox1" and priceproduct < 161 :
         permission=True
-    if product == "ps4" and priceproduct < 151 :
+    if product == "ps4" and priceproduct < 161 :
         permission=True
-    if product == "switch" and priceproduct < 201 :
+    if product == "switch" and priceproduct < 211 :
         permission=True
-    if product == "switch+jeu" and priceproduct < 211 :
+    if product == "switch+jeu" and priceproduct < 221 :
         permission=True
-    if product == "ps4+jeu" and priceproduct < 161 :
+    if product == "ps4+jeu" and priceproduct < 171 :
         permission=True
-    if product == "xbox1+jeu" and priceproduct < 161 :
+    if product == "xbox1+jeu" and priceproduct < 171 :
         permission=True
     if product == "gS9" and priceproduct < 651 and priceproduct > 99: 
         permission=True
