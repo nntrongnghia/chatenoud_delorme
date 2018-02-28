@@ -346,9 +346,9 @@ def global_filter(i): #i est une annonce dans li_list
 def decision(product,priceproduct):
     permission=False
 
-    if product == "agility" and priceproduct < 451 and priceproduct > 99 :
+    if product == "agility" and priceproduct < 551 and priceproduct > 99 :
         permission=True
-    if product == "booster" and priceproduct < 551 and priceproduct > 99 :
+    if product == "booster" and priceproduct < 651 and priceproduct > 99 :
         permission=True
     if product == "xbox1" and priceproduct < 161 :
         permission=True
@@ -368,9 +368,9 @@ def decision(product,priceproduct):
         permission=True
     if product == "gS8" and priceproduct < 401  and priceproduct > 99:
         permission=True
-    if product == "gS7Edge" and priceproduct <281 and priceproduct > 99 :
+    if product == "gS7Edge" and priceproduct <251 and priceproduct > 99 :
         permission=True
-    if product == "gS7" and priceproduct <201 and priceproduct > 99 :
+    if product == "gS7" and priceproduct <181 and priceproduct > 99 :
         permission=True
     if product == "gS6Edge+" and priceproduct <251 and priceproduct > 99 :
         permission=True
@@ -378,7 +378,7 @@ def decision(product,priceproduct):
         permission=True
     if product == "gS6" and priceproduct < 151 and priceproduct > 99:
         permission=True
-    if product == "iphone x" and priceproduct < 751 and priceproduct > 499 :
+    if product == "iphone x" and priceproduct < 771 and priceproduct > 499 :
         permission=True
     if product == "iphone 5c" and priceproduct < 61:
         permission=True
