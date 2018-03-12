@@ -289,13 +289,13 @@ def filter_scoot(SimpleTilte,Desc):
 
     Desc =  min_not_space(Desc)
 
-    out = hs_finder(SimpleTilte,Desc)
+    #out = hs_finder(SimpleTilte,Desc)
 
-    if out == True :
+    #if out == True :
 
-        phone = "broken"
+        #phone = "broken"
 
-        return phone
+        #return phone
 
     scoot= "not defined"
 
@@ -378,7 +378,7 @@ def decision(product,priceproduct):
         permission=True
     if product == "gS6" and priceproduct < 151 and priceproduct > 99:
         permission=True
-    if product == "iphone x" and priceproduct < 771 and priceproduct > 499 :
+    if product == "iphone x" and priceproduct < 791 and priceproduct > 499 :
         permission=True
     if product == "iphone 5c" and priceproduct < 61:
         permission=True
@@ -388,9 +388,9 @@ def decision(product,priceproduct):
         permission=True
     if product == "iphone 6+" and priceproduct < 211 and priceproduct > 99:
         permission=True
-    if product == "iphone 6s" and priceproduct < 236 and priceproduct > 99:
+    if product == "iphone 6s" and priceproduct < 231 and priceproduct > 99:
         permission=True
-    if product == "iphone 6s+" and priceproduct < 301 and priceproduct > 99:
+    if product == "iphone 6s+" and priceproduct < 251 and priceproduct > 99:
         permission=True
     if product == "iphone 7" and priceproduct < 331 and priceproduct > 99:
         permission=True
