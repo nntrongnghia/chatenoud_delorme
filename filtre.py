@@ -350,17 +350,17 @@ def decision(product,priceproduct):
         permission=True
     if product == "booster" and priceproduct < 651 and priceproduct > 99 :
         permission=True
-    if product == "xbox1" and priceproduct < 161 :
+    if product == "xbox1" and priceproduct < 161 and priceproduct > 89 :
         permission=True
-    if product == "ps4" and priceproduct < 161 :
+    if product == "ps4" and priceproduct < 161 and priceproduct > 89 :
         permission=True
-    if product == "switch" and priceproduct < 211 :
+    if product == "switch" and priceproduct < 211 and priceproduct > 89 :
         permission=True
-    if product == "switch+jeu" and priceproduct < 221 :
+    if product == "switch+jeu" and priceproduct < 241 and priceproduct > 89 :
         permission=True
-    if product == "ps4+jeu" and priceproduct < 171 :
+    if product == "ps4+jeu" and priceproduct < 171 and priceproduct > 89 :
         permission=True
-    if product == "xbox1+jeu" and priceproduct < 171 :
+    if product == "xbox1+jeu" and priceproduct < 171 and priceproduct > 89 :
         permission=True
     if product == "gS9" and priceproduct < 651 and priceproduct > 99: 
         permission=True
@@ -384,11 +384,11 @@ def decision(product,priceproduct):
         permission=True
     if product == "iphone 5s" and priceproduct < 71:
         permission=True
-    if product == "iphone 6" and priceproduct < 151 and priceproduct > 99:
+    if product == "iphone 6" and priceproduct < 161 and priceproduct > 99:
         permission=True
     if product == "iphone 6+" and priceproduct < 211 and priceproduct > 99:
         permission=True
-    if product == "iphone 6s" and priceproduct < 231 and priceproduct > 99:
+    if product == "iphone 6s" and priceproduct < 221 and priceproduct > 99:
         permission=True
     if product == "iphone 6s+" and priceproduct < 251 and priceproduct > 99:
         permission=True

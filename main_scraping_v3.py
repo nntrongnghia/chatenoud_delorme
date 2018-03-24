@@ -40,10 +40,20 @@ while 1:
                 #Filtre + Get_Data
                 result = scrap.global_filter(i)
                 r=re.compile(r'(Marseille)')
-                if result['good'] and len(r.findall(result['ville'])) != 0:
-                    if filtre.is_good(result['titre'],result['desc'],result['cat'],result['price']) :
-                        cb.send_message("J'ai trouvé une annonce chef !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
+                if result['good']:
+                    if result['cat'] != "Motos":
+                        if len(r.findall(result['ville'])) != 0:
+                            cb.send_message("J'ai trouvé une annonce chef !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
+                            cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
+                    else:
+                        cb.send_message("J'ai trouvé une moto !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
                         cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
+
+
+                #if result['good'] and len(r.findall(result['ville'])) != 0:
+                #    if filtre.is_good(result['titre'],result['desc'],result['cat'],result['price']) :
+                #        cb.send_message("J'ai trouvé une annonce chef !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
+                #        cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
                 #=================================================
             #attendre quelques secondes
             time.sleep(0.5)
