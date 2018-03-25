@@ -43,11 +43,13 @@ while 1:
                 if result['good']:
                     if result['cat'] != "Motos":
                         if len(r.findall(result['ville'])) != 0:
-                            cb.send_message("J'ai trouvé une annonce chef !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
-                            cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
+                            if filtre.is_good(result['titre'],result['desc'],result['cat'],result['price']) :
+                                cb.send_message("J'ai trouvé une annonce chef !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
+                                cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
                     else:
-                        cb.send_message("J'ai trouvé une moto !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
-                        cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
+                        if filtre.is_good(result['titre'],result['desc'],result['cat'],result['price']) :
+                            cb.send_message("J'ai trouvé une moto !! \nTITRE:  {}\nPRIX:   {}".format(result['titre'],result['price']))
+                            cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
 
 
                 #if result['good'] and len(r.findall(result['ville'])) != 0:
