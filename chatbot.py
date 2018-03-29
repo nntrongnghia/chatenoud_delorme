@@ -3,20 +3,21 @@ from fbchat.models import *
 from FNscraping import connection_check
 from FNscraping import send_log
 from datetime import datetime as dt
+import time
 
-
-if connection_check():
-    client = Client('hakimtsouria@gmail.com', 'kimodu06')
-else:
-    send_log('No connection fb  ' + str(dt.today()))
-    print('No connection fb ' + str(dt.today()))
-
+IsLogged = False
+while IsLogged == False:
+    try:
+        client = Client('hakimtsouria@gmail.com', 'kimodu06')
+        IsLogged = True
+    except:
+        send_log('No connection - fb'+ str(dt.today()))
+        print('No connection - fb'+ str(dt.today()))
+    time.sleep(5)
 
 
 def send_message(message):
     if connection_check():
-        if not client.isLoggedIn():
-            client.login('hakimtsouria@gmail.com', 'kimodu06')
         client.send(Message(text=message), thread_id='100006887565150', thread_type=ThreadType.USER) #send message to Rachide
     else:
         send_log('No connection - fb'+ str(dt.today()))
