@@ -188,7 +188,7 @@ def get_desc_code(li):
                 page_html = str(page_soup)
                 r = re.compile(r'<div data-qa-id=\"adview_description_container\" data-reactid=\"\d+\"><div data-reactid=\"\d+\"><span data-reactid=\"\d+\">(.*)</span></div><div class=\"_3ey2y\"')
                 if len(r.findall(page_html)) == 0:
-                    desc = 'Not found'
+                    desc = 'Not found desc - re error'
                     print(desc)
                 else:
                     desc = r.findall(page_html)[0]
@@ -200,7 +200,7 @@ def get_desc_code(li):
                     code_text = page_soup.find_all(class_='_1aCZv')[0].text
                     r2 = re.compile(r'\D(\d{5})\D')
                     if len(r2.findall(code_text)) == 0:
-                        code = 'Not found' 
+                        code = 'Not found code - re error' 
                         print(code)
                     else:
                         code = r2.findall(code_text)[0]
