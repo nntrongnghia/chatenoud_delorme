@@ -165,7 +165,8 @@ def save_data(Id=None,title=None,cat=None,price=None,desc=None,link=None,departm
 
 #obtenir la description et le code postal
 #renvoyer une dictionaire de 2 mots cles: 'desc' et 'code'
-def get_desc_code(li):
+'''
+def get_desc_code_old(li):
     time.sleep(0.5)
     link = get_link(li)
     link = 'http:'+link   
@@ -205,13 +206,13 @@ def get_desc_code(li):
                 desc = r1.sub(r' ',desc)
 
                 if len(page_soup.find_all(class_='_1aCZv')) != 0:
-                    code_text = page_soup.find_all(class_='_1aCZv')[0].text
+                    page_html = page_soup.find_all(class_='_1aCZv')[0].text
                     r2 = re.compile(r'\D(\d{5})\D')
-                    if len(r2.findall(code_text)) == 0:
+                    if len(r2.findall(page_html)) == 0:
                         code = 'Not found code - re error' 
                         print(code)
                     else:
-                        code = r2.findall(code_text)[0]
+                        code = r2.findall(page_html)[0]
                 else:
                     code = 'Not found the html class'
                     print(code)
@@ -221,6 +222,45 @@ def get_desc_code(li):
             desc = 'Failed to get html - connection error'
             code = 'Failed to get html - connection error'
 
+        result['desc'] = desc
+        result['code'] = code
+    else:
+        result['desc'] = 'No connection'
+        result['code'] = 'No connection'
+    return result
+'''
+def get_desc_code(li):
+    #================initiate
+    time.sleep(1)
+    link = get_link(li)
+    link = 'http:'+link   
+    result = {'desc':None, 'code':None}
+    #==============get the html
+    get_page = False
+    try:
+        page_annonce = requests.get(link)
+        get_page = True
+    except:
+        get_page = False
+        send_log('No connection/Max retries exceeded  ' + str(dt.today()))
+        print('No connection/Max retries exceeded  ' + str(dt.today()))
+    #==============get the content
+    if get_page == True:
+        page_html = str(page_annonce.content)
+        #===============find desc
+        r = re.compile(r'<meta data-react-helmet=\"true\" property=\"og:description\" content=\"(.*)\"/><meta')
+        if len(r.findall(page_html)) == 0:
+            desc = 'Not found desc - re error'
+            print(desc)
+        else:
+            desc = r.findall(page_html)[0]
+        #===============find code
+        r2 = re.compile(r'zipcode\":\"(\d{4,5})\"')
+        if len(r2.findall(page_html)) == 0:
+            code = 'Not found code - re error' 
+            print(code)
+        else:
+            code = r2.findall(page_html)[0]
         result['desc'] = desc
         result['code'] = code
     else:
