@@ -171,8 +171,16 @@ def get_desc_code(li):
     link = 'http:'+link   
     result = {'desc':None, 'code':None}
     if connection_check():
-        page_annonce = requests.get(link)
-        if page_annonce.status_code == requests.codes.ok:
+        get_page = False
+        try:
+            page_annonce = requests.get(link)
+            get_page = True
+        except:
+            get_page = False
+            send_log('No connection  ' + str(dt.today()))
+            print('No connection  ' + str(dt.today()))
+        #if page_annonce.status_code == requests.codes.ok:
+        if get_page == True:
             page_soup = soup(page_annonce.content,'html.parser')
             try: 
                 desc_html = page_soup.find_all(class_='line properties_description')[0]
@@ -208,10 +216,10 @@ def get_desc_code(li):
                     code = 'Not found the html class'
                     print(code)
         else:
-            send_log('Failed to get html' + ' ' + str(dt.today()))
-            print('Failed to get html')
-            desc = 'Failed to get html'
-            code = 'Failed to get html'
+        #    send_log('Failed to get html' + ' ' + str(dt.today()))
+        #    print('Failed to get html')
+            desc = 'Failed to get html - connection error'
+            code = 'Failed to get html - connection error'
 
         result['desc'] = desc
         result['code'] = code
