@@ -23,11 +23,11 @@ while 1:
         #================ The adventure of X
         while foundX2 == False and npage<100: #change la page chaque fois
             npage += 1
-            if scrap.connection_check():
+            try:
                 li_listn = scrap.get_li_list(url_fond + str(npage))
-            else:
-                scrap.send_log('No connection  ' + str(dt.today()))
-                print('No connection  ' + str(dt.today()))
+            except:
+                scrap.send_log('No connection/Max retries exceeded  ' + str(dt.today()))
+                print('No connection/Max retries exceeded  ' + str(dt.today()))
                 break
             if npage == 1:
                 x1 = scrap.get_id(li_listn[0])
@@ -63,7 +63,7 @@ while 1:
                 #        cb.send_message("  DESCRIPTION:  {}\nLIEN:   {}".format(result['desc'],result['link']))
                 #=================================================
             #attendre quelques secondes
-            time.sleep(0.8)
+            time.sleep(1)
         #====================End while 100 page
         if foundX2 == False:
             x2 = x1

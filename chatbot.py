@@ -11,9 +11,10 @@ while IsLogged == False:
         client = Client('hakimtsouria@gmail.com', 'kimodu06')
         IsLogged = True
     except:
+        IsLogged = False
         send_log('No connection - fb'+ str(dt.today()))
         print('No connection - fb'+ str(dt.today()))
-    time.sleep(5)
+    time.sleep(10)
 
 
 def send_message(message):

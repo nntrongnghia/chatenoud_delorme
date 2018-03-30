@@ -177,8 +177,8 @@ def get_desc_code(li):
             get_page = True
         except:
             get_page = False
-            send_log('No connection  ' + str(dt.today()))
-            print('No connection  ' + str(dt.today()))
+            send_log('No connection/Max retries exceeded  ' + str(dt.today()))
+            print('No connection/Max retries exceeded  ' + str(dt.today()))
         #if page_annonce.status_code == requests.codes.ok:
         if get_page == True:
             page_soup = soup(page_annonce.content,'html.parser')
