@@ -647,3 +647,7 @@ No connection  2018-03-25 22:17:53.570690
 =======
 No connection - fb
 
+
+No connection  2018-04-08 17:06:32.593902
+No connection  2018-04-08 19:41:32.600832
+No connection  2018-04-08 20:56:02.257043
