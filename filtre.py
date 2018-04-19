@@ -4,7 +4,7 @@ import re
 def min_not_space(t):
     t = t.replace(" ","").replace("-","").replace("_","")
     t = t.replace("â","a").replace("á","a").replace("à","a")
-    return t.lower().replace("è","e").replace("é","e").replace("ê","e")
+    return t.lower().replace("é","e").replace("é","e").replace("ê","e")
 
 def filter_iphone(SimpleTilte):
     target = re.compile(r'(iphone)').findall(SimpleTilte)
@@ -285,8 +285,6 @@ def filter_scoot(SimpleTilte,Desc):
 
     SimpleTilte =  min_not_space(SimpleTilte)
 
-    SimpleTilte =  min_not_space(SimpleTilte)
-
     Desc =  min_not_space(Desc)
 
     #out = hs_finder(SimpleTilte,Desc)
@@ -348,7 +346,7 @@ def decision(product,priceproduct):
 
     if product == "agility" and priceproduct < 551 and priceproduct > 99 :
         permission=True
-    if product == "booster" and priceproduct < 651 and priceproduct > 99 :
+    if product == "booster" and priceproduct < 551 and priceproduct > 99 :
         permission=True
     if product == "xbox1" and priceproduct < 161 and priceproduct > 89 :
         permission=True
